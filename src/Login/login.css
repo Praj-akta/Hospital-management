@@ -12,7 +12,7 @@ body{
     padding: 20px;
 }
 .login-form{
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     margin:  auto;
     width: 70%;
     display: flex;
@@ -34,7 +34,7 @@ body{
     text-transform: uppercase;
     font-size: 30px;
     font-weight: 600;
-    padding: 50px;
+    padding: 50px 0;
 }
 input::placeholder{
     color: #000;
@@ -63,3 +63,27 @@ input::placeholder{
     color: #000;
     background-color: #fff;
 } */
+
+
+@media only screen and (max-width: 768px) {
+  .login-form{
+    width: 100%;
+    height: auto;
+    border: none;
+  }
+  .login-img-holder img{
+    float: none;
+  }
+  .login-form-holder h3{
+    padding: 28px 0;
+  }
+}
+
+@media only screen and (max-width: 1024px){
+    .login-form{
+        border: none;
+      }
+      .login-img-holder img{
+        float: none;
+      }
+}

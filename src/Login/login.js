@@ -13,12 +13,12 @@ function Login() {
   return (
     <div>
       <div className="row login-form">
-        <div className="col-6 p-0">
+        <div className="col-sm-12 col-lg-6 p-0">
           <div className="login-img-holder">
             <img src={loginImg}></img>
           </div>
         </div>
-        <div className="col-6 p-0">
+        <div className="col-sm-12 col-lg-6 p-0">
           <div className="login-form-holder">
             <form onSubmit={onsubmit} name="login_form">
               <h3>Member Login</h3>
