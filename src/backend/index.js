@@ -9,7 +9,7 @@ app.use(express.json());
 
 // Route to get home route
 app.get("/", (req, res) => {
-  res.send("Home page")
+  res.send("Home page");
 });
 
 // Route for creating the post
@@ -20,7 +20,6 @@ app.post("/api/addUser", (req, res) => {
   const address = req.body.address;
   const dob = req.body.dob;
   const password = req.body.password;
-
 
   db.query(
     "INSERT INTO user_account (first_name, last_name, email, address, dob, password) VALUES (?,?,?)",
