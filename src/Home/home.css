@@ -5,7 +5,7 @@
     align-items: center;
     margin: 20px auto;
     max-width: 1200px;
-    background-image: url('../Home/bg.jpg'); 
+    background-image: url('../assets/bg.jpg'); 
   }
   
   .heading {
