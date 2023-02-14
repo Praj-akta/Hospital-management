@@ -1,5 +1,5 @@
 const express = require("express");
-const db = require("./config/db");
+const db = require("./db");
 const cors = require("cors");
 
 const app = express();
@@ -14,21 +14,16 @@ app.get("/", (req, res) => {
 
 // Route for creating the post
 app.post("/api/addUser", (req, res) => {
-  const firstname = req.body.firstname;
-  const lastname = req.body.lastname;
-  const email = req.body.email;
-  const address = req.body.address;
-  const dob = req.body.dob;
-  const password = req.body.password;
-
+  const { firstname, lastname, email, address, dob } = req.body;
   db.query(
-    "INSERT INTO user_account (first_name, last_name, email, address, dob, password) VALUES (?,?,?)",
-    [firstname, lastname, email, address, dob, password],
+    "INSERT INTO user_account (first_name, last_name, email, address, dob) VALUES (?,?,?,?,?)",
+    [firstname, lastname, email, address, dob],
     (err, result) => {
       if (err) {
-        console.log(err);
+        res.status(400).send({ error: err });
+      } else {
+        res.send({ success: true });
       }
-      console.log(result);
     }
   );
 });

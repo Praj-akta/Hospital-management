@@ -1,8 +1,8 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { auth } from "../firebase";
 import loginImg from "../Login/login-img.png";
 import { useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import "../Login/login.css";
 
 function Register() {
@@ -17,15 +17,35 @@ function Register() {
 
   function register(e) {
     e.preventDefault();
-    console.log(email, password);
     if (password === confirmPassword) {
+      //firebase create with email password
       createUserWithEmailAndPassword(auth, email, password)
-        .then(() => {
-          navigate("/login");
-        })
-        .catch((err) => console.log(err.message));
-    } else alert("Password Does Not Match");
+        .then(() => navigate("/login"))
+        .catch((err) => {
+          if(err.code === "auth/email-already-in-use") {
+            alert("Email address already exists.")
+          }
+        });
+
+      //post register details to sql database
+      fetch("http://localhost:3002/api/addUser", {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstname: firstname,
+          lastname: lastname,
+          email: email,
+          address: address,
+          dob: dob
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.log(error));
+    } 
+    else alert("Password Does Not Match");
   }
+
   return (
     <div>
       <div className="row login-form">
@@ -38,7 +58,7 @@ function Register() {
           <div className="login-form-holder">
             <form onSubmit={register} name="registerform">
               <h3>Register</h3>
-              
+
               <label>First Name:</label>
               <br />
 
@@ -73,7 +93,6 @@ function Register() {
                 onChange={(e) => setEmail(e.target.value)}
               />
 
-
               <label>Address:</label>
               <br />
               <input
@@ -94,7 +113,6 @@ function Register() {
                 placeholder="Enter your Date Of Birth"
                 onChange={(e) => setDateOfBirth(e.target.value)}
               />
-             
 
               <label>Password:</label>
               <br />
