@@ -59,21 +59,15 @@ function LoginForm({ title, role }) {
             </button>
           </form>
           <div className="login-links">
-            {
-              (role === "admin" || role === "doctor") && (
-                <Link to="/login">User Login </Link> 
-              )
-            }
-            {
-              (role === "user" || role === "doctor") && (
-                <Link to="/admin-login">Admin Login</Link>
-              )
-            }
-            {
-              (role === "admin" || role === "user") && (
-                <Link to="/doctor-login">Doctor's Login</Link>
-              )
-            }
+            {(role === "admin" || role === "doctor") && (
+              <Link to="/login">User Login </Link>
+            )}
+            {(role === "user" || role === "doctor") && (
+              <Link to="/admin-login">Admin Login</Link>
+            )}
+            {(role === "admin" || role === "user") && (
+              <Link to="/doctor-login">Doctor's Login</Link>
+            )}
           </div>
           {role === "user" && (
             <div>
