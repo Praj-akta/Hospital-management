@@ -5,7 +5,7 @@
     align-items: center;
     margin: 20px auto;
     max-width: 1200px;
-    background-image: url('../assets/bg.jpg'); 
+    background-image: url('../images/bg.jpg'); 
   }
   
   .heading {
@@ -40,13 +40,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 15px 20px;
     background-color: #0d395d;
     color: #fff;
   }
   
   .navbar h1 {
-    font-size: 24px;
+    font-size: 20px;
     margin: 0;
   }
   
@@ -64,7 +64,7 @@
   .navbar a {
     text-decoration: none;
     color: #fff;
-    font-size: 18px;
+    font-size: 16px;
     padding: 10px;
     border-radius: 5px;
   }

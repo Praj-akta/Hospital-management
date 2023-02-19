@@ -3,13 +3,13 @@ import Header from "../components/Header";
 import LoginForm from "../components/LoginForm";
 import "./login.css";
 
-function Login() {
+function AdminLogin() {
   return (
     <div>
       <Header />
-      <LoginForm role="user" title="User Login" />
+      <LoginForm role="admin" title="Admin Login"/>
     </div>
   );
 }
 
-export default Login;
+export default AdminLogin;
