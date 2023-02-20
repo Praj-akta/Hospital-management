@@ -116,15 +116,41 @@
     padding: 30px 0;
   }
   form{
-    width: 70%;
+    width: 70%;;
     margin: auto;
     border: 1px solid #000;
-    padding: 16px 50px;
+    padding: 50px;
   }
   label{
     float: left;
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 8px;
+  }
+  button{
+    float: left;
+    padding: 8px 28px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: #0d395d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+}
+
+// -----MANAGE Doctor CSS START------
+.manage_doc_container{
+  h3{
+    font-size: 26px;
+    font-weight: 700;
+    padding: 30px 0;
+  }
+  table{
+    width: 70%;
+    border: 1px solid #000;
+    margin: auto;
   }
 }
