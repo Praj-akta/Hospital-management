@@ -1,30 +1,41 @@
-import React from "react";
-import { number } from "yargs";
+import React, {useState} from "react";
+import { Table } from "react-bootstrap";
 import AdminHeader from "../AdminHeader";
 import AdminSidebar from "../AdminSidebar";
 import "../index.scss";
 
 function Doctors() {
+
+  const [docname, setDocname] = useState("");
+  const [speciality, setSpeciality] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [fees, setFees] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  
   return (
     <div className="admin-dashboard">
       <AdminSidebar />
       <div className="admin-header">
         <AdminHeader />
         <div>
-          {/* Doctors page */}
+          
           <div className="add_doc_container">
             <h3>Add Doctor</h3>
+            
             <form>
               <label>Name:</label>
               <br />
               <input
                 className="form-control"
                 type="text"
-                // name="docname"
-                // value={docname}
+                value={docname}
                 required
                 placeholder="Enter Doctor's Name"
-                // onChange={(e) => setFirstname(e.target.value)}
+                onChange={(e) => setDocname(e.target.value)}
               />
               <br />
 
@@ -33,12 +44,11 @@ function Doctors() {
               <input 
                 className="form-control"
                 type="text"
-                // name="speciality"
-                // value={speciality}
+                value={speciality}
                 required
                 placeholder="Enter Doctor's Speciality"
-                // onChange={onchange}
-              />
+                onChange={(e) => setSpeciality(e.target.value)}     
+                />
               <br />
 
               <label>Email:</label>
@@ -46,11 +56,10 @@ function Doctors() {
               <input 
                 className="form-control"
                 type="email"
-                // name="email"
-                // value={email}
+                value={email}
                 required
                 placeholder="Enter Doctor's Email:"
-                // onChange={onchange}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <br />
 
@@ -59,11 +68,10 @@ function Doctors() {
               <input 
                 className="form-control"
                 type="tel"
-                // name="phone"
-                // value={phone}
+                value={phone}
                 required
                 placeholder="Enter Doctor's Contact No:"
-                // onChange={onchange}
+                onChange={(e) => setPhone(e.target.value)}
               />
               <br />
 
@@ -71,46 +79,70 @@ function Doctors() {
               <br />
               <textarea 
                 className="form-control"
-                // name="address"
-                // value={address}
+                value={address}
                 required
                 placeholder="Enter Doctor's Clinic Address:"
-                // onChange={onchange}
+                onChange={(e) => setAddress(e.target.value)}
               />
               <br />
 
               <label>Consultancy Fees:</label>
-              {/* <input
-                type={number}
-                value={}
-                required
-                placeholder="Enter Consultancy Fees:"
-                onChange={}
-              /> */}
+              <input
+              className="form-control"
+              type="text"
+              value={fees}
+              required
+              placeholder="Enter Consultancy Fees:"
+              onChange={(e) => setFees(e.target.value)}
+              />
               <br />
 
               <label>Password:</label>
               <br />
               <input
                 className="form-control"
-                // type="password"
-                // value={password}
+                type="password"
+                value={password}
                 required
                 placeholder="Enter your password"
-                // onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
               />
+              <br />
+
               <label>Confirm Password:</label>
               <br />
               <input
                 className="form-control"
-                // type="password"
-                // value={confirmPassword}
+                type="password"
+                value={confirmPassword}
                 required
                 placeholder="Confirm password"
-                // onChange={(e) => setConfirmPassword(e.target.value)}
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
+              <br />
+
+              <button type="submit">
+                Submit
+              </button>
             </form>
           </div>
+
+          <div className="manage_doc_container">
+          <h3>Manage Doctor</h3>
+          <Table responsive stripedble>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Specialization</th>
+                <th>Doctor Name</th>
+                <th>Creation Date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+          </Table>
+            
+          </div>
+
         </div>
       </div>
     </div>
