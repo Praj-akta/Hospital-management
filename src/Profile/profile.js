@@ -4,7 +4,7 @@ import loginImg from "../assets/login-img.png";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import "../Profile/profile.css";
-import LOGO from "../assets/logo.png";
+import LOGO from "../images/logo.png";
 
 function Register() {
   const navigate = useNavigate();

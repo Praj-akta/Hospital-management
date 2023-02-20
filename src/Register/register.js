@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import "../Login/login.scss";
-import LOGO from "../assets/logo.png";
+import LOGO from "../images/logo.png";
 
 function Register() {
   const navigate = useNavigate();

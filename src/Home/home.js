@@ -2,7 +2,7 @@ import React from "react";
 import "./home.css";
 // import SliderPage from "../components/SliderPage";
 
-import LOGO from "../assets/logo.png";
+import LOGO from "../images/logo.png";
 
 import ABOUTIMG1 from "../assets/img01.jpg";
 import ABOUTIMG2 from "../assets/department2.jpg";
