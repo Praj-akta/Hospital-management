@@ -28,6 +28,21 @@ app.post("/api/addUser", (req, res) => {
   );
 });
 
+app.post("/api/addDoctors", (req, res) => {
+  const { name, specialization, email, address, phone, fees } = req.body;
+  db.query(
+    "INSERT INTO doctors (name, specialization, email, address, phone, fees) VALUES (?,?,?,?,?,?)",
+    [name, specialization, email, address, phone, fees],
+    (err, result) => {
+      if (err) {
+        res.status(400).send({ error: err });
+      } else {
+        res.send({ success: true });
+      }
+    }
+  );
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
 });
