@@ -7,7 +7,8 @@ function AdminSidebar() {
   return (
     <div className="admin-sidebar">
       <div className="navbar logo">
-        <img src={logo} alt="logo-bg"/>
+        HMS
+        <img src={logo} alt="logo-bg" />
       </div>
       <ul>
         <li>
@@ -20,7 +21,7 @@ function AdminSidebar() {
           <Link to="/admin/patients">Patients</Link>
         </li>
         <li>
-          <Link>Users</Link>
+          <Link to="/admin/dashboard">Appointments</Link>
         </li>
         <li>
           <Link>Reports</Link>
