@@ -1,4 +1,5 @@
 import React from "react";
+import { number } from "yargs";
 import AdminHeader from "../AdminHeader";
 import AdminSidebar from "../AdminSidebar";
 import "../index.scss";
@@ -75,6 +76,38 @@ function Doctors() {
                 required
                 placeholder="Enter Doctor's Clinic Address:"
                 // onChange={onchange}
+              />
+              <br />
+
+              <label>Consultancy Fees:</label>
+              {/* <input
+                type={number}
+                value={}
+                required
+                placeholder="Enter Consultancy Fees:"
+                onChange={}
+              /> */}
+              <br />
+
+              <label>Password:</label>
+              <br />
+              <input
+                className="form-control"
+                // type="password"
+                // value={password}
+                required
+                placeholder="Enter your password"
+                // onChange={(e) => setPassword(e.target.value)}
+              />
+              <label>Confirm Password:</label>
+              <br />
+              <input
+                className="form-control"
+                // type="password"
+                // value={confirmPassword}
+                required
+                placeholder="Confirm password"
+                // onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </form>
           </div>
