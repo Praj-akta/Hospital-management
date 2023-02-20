@@ -1,0 +1,2 @@
+export const DOCTORS_LIST = "DOCTORS_LIST";
+export const PATIENTS_LIST = "DELETE_ITEM";

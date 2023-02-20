@@ -34,6 +34,12 @@
   .content {
     padding: 5px 10px;
     text-align: left;
+    .heading {
+      display: flex;
+      margin-bottom: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
   .breadcrumbs {
     font-size: 12px;
@@ -44,35 +50,60 @@
   .dashboard-content {
     display: flex;
     flex-wrap: wrap;
-    div {
-      height: 200px;
-    }
     .div1,
     .div2,
     .div3,
     .div4 {
-      margin: 10px;
-      font-size: 30px;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 40px 20px;
+      font-size: 27px;
+      position: relative;
+      margin-right: 15px;
+      margin-bottom: 15px;
       text-transform: uppercase;
       a {
         color: #000;
         text-decoration: none;
       }
+      svg {
+        position: absolute;
+        font-size: 120px;
+        opacity: 0.35;
+        top: 10px;
+        right: 20px;
+      }
     }
     .div1 {
-      background-color: aquamarine;
+      background: rgba(94, 173, 204, 0.88);
     }
     .div2 {
-      background-color: rebeccapurple;
+      background: rgba(4, 126, 4, 0.88);
     }
     .div3 {
-      background-color: rosybrown;
+      background: rgba(220, 166, 65, 0.88);
     }
     .div4 {
-      background-color: purple;
+      background: rgba(214, 50, 50, 0.88);
+    }
+  }
+  .dropdown {
+    .dropdown-menu {
+      padding: 0;
+      background-color: #eee;
+      a {
+        color: #000;
+        &:hover {
+          color: #0d395d;
+          font-weight: bold;
+          background-color: transparent;
+        }
+      }
+    }
+    button {
+      color: #fff;
+      &:focus {
+        box-shadow: none;
+      }
     }
   }
 }
