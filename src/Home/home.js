@@ -56,7 +56,7 @@ function Home() {
 
     // My work
 
-    <div className="main">
+    <div className="main home-container">
       <div className="body">
 
         <nav className="nav">

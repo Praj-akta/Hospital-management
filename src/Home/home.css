@@ -123,12 +123,12 @@
   align-items: center;
   margin-right: 150px;
 }
-.logo{
+.home-container .logo{
   width: 100px;
   margin-left: 330px;
 }
 
-.logo img{
+.home-container .logo img{
   width: 100%;
 }
 

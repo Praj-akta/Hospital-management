@@ -5,7 +5,7 @@ import "./index.scss";
 
 function AdminHeader() {
   return (
-    <div className="navbar">
+    <div className="navbar admin-navbar">
       <div>
         <Link to="/">Hospital Management System</Link>
       </div>

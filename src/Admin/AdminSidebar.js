@@ -6,7 +6,7 @@ import "./index.scss";
 function AdminSidebar() {
   return (
     <div className="admin-sidebar">
-      <div className="navbar logo">
+      <div className="navbar logo admin-navbar">
         HMS
         <img src={logo} alt="logo-bg" />
       </div>

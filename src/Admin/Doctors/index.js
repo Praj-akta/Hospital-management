@@ -1,31 +1,30 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Table } from "react-bootstrap";
 import AdminHeader from "../AdminHeader";
 import AdminSidebar from "../AdminSidebar";
 import "../index.scss";
 
 function Doctors() {
-
   const [docname, setDocname] = useState("");
   const [speciality, setSpeciality] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [fees, setFees] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [confirmPassword, setConfirmPassword] = useState("");
 
-  
   return (
     <div className="admin-dashboard">
       <AdminSidebar />
       <div className="admin-header">
         <AdminHeader />
-        <div>
-          
-          <div className="add_doc_container">
+        <div className="content">
+          <div className="heading doctors-heading">
             <h3>Add Doctor</h3>
-            
+            <p className="breadcrumbs">
+              Admin {">"} <span className="curr-page">Add Doctor</span>{" "}
+            </p>
+          </div>
+          <div className="add_doc_container">
             <form>
               <label>Name:</label>
               <br />
@@ -41,19 +40,19 @@ function Doctors() {
 
               <label>Speciality:</label>
               <br />
-              <input 
+              <input
                 className="form-control"
                 type="text"
                 value={speciality}
                 required
                 placeholder="Enter Doctor's Speciality"
-                onChange={(e) => setSpeciality(e.target.value)}     
-                />
+                onChange={(e) => setSpeciality(e.target.value)}
+              />
               <br />
 
               <label>Email:</label>
               <br />
-              <input 
+              <input
                 className="form-control"
                 type="email"
                 value={email}
@@ -65,7 +64,7 @@ function Doctors() {
 
               <label>Phone:</label>
               <br />
-              <input 
+              <input
                 className="form-control"
                 type="tel"
                 value={phone}
@@ -77,7 +76,7 @@ function Doctors() {
 
               <label>Clinic Address:</label>
               <br />
-              <textarea 
+              <textarea
                 className="form-control"
                 value={address}
                 required
@@ -88,12 +87,12 @@ function Doctors() {
 
               <label>Consultancy Fees:</label>
               <input
-              className="form-control"
-              type="text"
-              value={fees}
-              required
-              placeholder="Enter Consultancy Fees:"
-              onChange={(e) => setFees(e.target.value)}
+                className="form-control"
+                type="text"
+                value={fees}
+                required
+                placeholder="Enter Consultancy Fees:"
+                onChange={(e) => setFees(e.target.value)}
               />
               <br />
 
@@ -121,29 +120,29 @@ function Doctors() {
               />
               <br /> */}
 
-              <button type="submit">
-                Submit
-              </button>
+              <button type="submit">Submit</button>
             </form>
           </div>
-
           <div className="manage_doc_container">
-          <h3>Manage Doctor</h3>
-          <Table responsive stripedble>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Specialization</th>
-                <th>Doctor Name</th>
-                <th>Email</th>
-                <th>Phone No</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-          </Table>
-            
+            <div className="heading doctors-heading">
+            <h3>Manage Doctor</h3>
+            {/* <p className="breadcrumbs">
+              Admin {">"} <span className="curr-page">Manage Doctor</span>{" "}
+            </p> */}
           </div>
-
+            <Table responsive stripedble>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Specialization</th>
+                  <th>Doctor Name</th>
+                  <th>Email</th>
+                  <th>Phone No</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+            </Table>
+          </div>
         </div>
       </div>
     </div>
