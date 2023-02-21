@@ -42,6 +42,13 @@ app.post("/api/addDoctors", (req, res) => {
     }
   );
 });
+app.get("/api/patients", (req, res) => {
+  db.query("SELECT * FROM user_account", (err, result) => {
+    if(result) {
+      res.status(200).send(result)
+    }
+  });
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);
