@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { auth } from "../firebase";
-import Header from "../components/Header";
+import loginImg from "../assets/login-img.png";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import "../Login/login.scss";
+import "../Profile/profile.css";
 import LOGO from "../images/logo.png";
 
 function Register() {
   const navigate = useNavigate();
-  const [err, setErr] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -24,8 +23,8 @@ function Register() {
       createUserWithEmailAndPassword(auth, email, password)
         .then(() => navigate("/login"))
         .catch((err) => {
-          if (err.code === "auth/email-already-in-use") {
-            setErr("Email address already exists.");
+          if(err.code === "auth/email-already-in-use") {
+            alert("Email address already exists.")
           }
         });
 
@@ -38,36 +37,40 @@ function Register() {
           lastname: lastname,
           email: email,
           address: address,
-          dob: dob,
+          dob: dob
         }),
       })
         .then((res) => res.json())
         .then((data) => console.log(data))
         .catch((error) => console.log(error));
-    } else setErr("Password Does Not Match");
+    } 
+    else alert("Password Does Not Match");
   }
 
   return (
     <div className="body-main">
-    <nav className="nav">
-        <div className="logo">
-          <img src={LOGO} alt="logo"/>
-        </div>
-        <div className="link-holder">
-          <a href="/">Home</a>
-          <a href="Doctors">Doctor</a>
-          <a href="Register">Register</a>
-          <a href="Login">Login</a>
-          <a href="Profile">Profile</a>
-        </div>
-      </nav>
-      {/* <Header /> */}
-      <div className="row login-form register-form">
-        <h3>Register</h3>
-        <div className="col-sm-10 col-lg-6 col-xl-6 col-md-8 p-0 login-form-container">
+      <nav className="nav">
+          <div className="logo">
+            <img src={LOGO} />
+          </div>
+          <div className="link-holder">
+            <a href="/">Home</a>
+
+            <a href="">Doctor</a>
+
+            <a href="Register">Register</a>
+            <a href="Login">Login</a>
+            <a href="Profile">Profile</a>
+          </div>
+        </nav>
+
+      <div className="row login-form">
+        
+        <div className="col-sm-12 col-lg-6 p-0">
           <div className="login-form-holder">
             <form onSubmit={register} name="registerform">
-              {err && <p className="err">{err}</p>}
+              <h3>Edit Profile</h3>
+
               <label>First Name:</label>
               <br />
 
@@ -76,7 +79,7 @@ function Register() {
                 type="text"
                 value={firstname}
                 required
-                placeholder="Enter your First Name"
+                placeholder=""
                 onChange={(e) => setFirstname(e.target.value)}
               />
 
@@ -87,7 +90,7 @@ function Register() {
                 type="text"
                 value={lastname}
                 required
-                placeholder="Enter your Last Name"
+                placeholder=""
                 onChange={(e) => setLastName(e.target.value)}
               />
 
@@ -97,7 +100,7 @@ function Register() {
                 className="form-control"
                 type="email"
                 value={email}
-                placeholder="Enter your email"
+                placeholder=""
                 required
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -109,7 +112,7 @@ function Register() {
                 type="text"
                 value={address}
                 required
-                placeholder="Enter your Address"
+                placeholder=""
                 onChange={(e) => setAddress(e.target.value)}
               />
               <label>Date Of Birth:</label>
@@ -119,42 +122,18 @@ function Register() {
                 type="date"
                 value={dob}
                 required
-                placeholder="Enter your Date Of Birth"
+                placeholder=""
                 onChange={(e) => setDateOfBirth(e.target.value)}
               />
 
-              <label>Password:</label>
-              <br />
-              <input
-                className="form-control"
-                type="password"
-                value={password}
-                required
-                placeholder="Enter your password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <label>Confirm Password:</label>
-              <br />
-              <input
-                className="form-control"
-                type="password"
-                value={confirmPassword}
-                required
-                placeholder="Confirm password"
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
+              
 
               <br />
               <button type="submit" className="login-btn">
-                Register
+                Save
               </button>
             </form>
-            <div>
-              {" "}
-              Already have an Account? &nbsp;<a href="/login">
-                Login Here
-              </a>{" "}
-            </div>
+            
           </div>
         </div>
       </div>

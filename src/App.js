@@ -8,6 +8,7 @@ import Register from "./Register/register";
 import AdminLogin from "./Login/AdminLogin";
 import ChangePassword from "./ChangePassword";
 import DoctorLogin from "./Login/DoctorsLogin";
+import Profile from "./Profile/profile";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import './App.css';
 
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/admin/dashboard" element={<Admin />}></Route>
           <Route exact path="/admin/patients" element={<Patients />}></Route>
           <Route exact path="/admin/doctors" element={<Doctors />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
         </Routes>
       </div>
     </Router>

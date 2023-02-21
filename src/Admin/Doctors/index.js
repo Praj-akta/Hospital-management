@@ -12,8 +12,8 @@ function Doctors() {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [fees, setFees] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [confirmPassword, setConfirmPassword] = useState("");
 
   
   return (
@@ -97,7 +97,7 @@ function Doctors() {
               />
               <br />
 
-              <label>Password:</label>
+              {/* <label>Password:</label>
               <br />
               <input
                 className="form-control"
@@ -119,7 +119,7 @@ function Doctors() {
                 placeholder="Confirm password"
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
-              <br />
+              <br /> */}
 
               <button type="submit">
                 Submit
@@ -132,10 +132,11 @@ function Doctors() {
           <Table responsive stripedble>
             <thead>
               <tr>
-                <th>No</th>
+                <th>#</th>
                 <th>Specialization</th>
                 <th>Doctor Name</th>
-                <th>Creation Date</th>
+                <th>Email</th>
+                <th>Phone No</th>
                 <th>Action</th>
               </tr>
             </thead>
