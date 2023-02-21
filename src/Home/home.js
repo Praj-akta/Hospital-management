@@ -1,9 +1,5 @@
 import React from "react";
 import "./home.css";
-// import SliderPage from "../components/SliderPage";
-
-import LOGO from "../images/logo.png";
-
 import ABOUTIMG1 from "../images/img01.jpg";
 import ABOUTIMG2 from "../images/department2.jpg";
 
@@ -22,7 +18,7 @@ import DOC5 from "../images/doctor5.jpg";
 import DOC6 from "../images/doctor6.jpg";
 
 import ECG from "../images/ecg.png";
-
+import Header from "../components/Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Slider from '../Slider';
 import slides from '../mock.json'
@@ -58,20 +54,7 @@ function Home() {
 
     <div className="main home-container">
       <div className="body">
-
-        <nav className="nav">
-          <div className="logo">
-            <img src={LOGO} alt="Logo" />
-          </div>
-          <div className="link-holder">
-            <a href="/">Home</a>
-            <a href="/Doctors">Doctor</a>
-            <a href="/Register">Register</a>
-            <a href="/Login">Login</a>
-            <a href="/Profile">Profile</a>
-          </div>
-        </nav>
-
+        <Header />
         {/* hero section */}
 
         <div className="">

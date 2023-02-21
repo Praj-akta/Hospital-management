@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { auth } from "../firebase";
-// import loginImg from "../assets/login-img.png";
 import { useNavigate } from "react-router-dom";
+import Header from "../components/Header";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import "../Profile/profile.css";
-import LOGO from "../images/logo.png";
 
 function Register() {
   const navigate = useNavigate();
@@ -49,21 +48,7 @@ function Register() {
 
   return (
     <div className="body-main">
-      <nav className="nav">
-          <div className="logo">
-            <img src={LOGO} alt="/"/>
-          </div>
-          <div className="link-holder">
-            <a href="/">Home</a>
-
-            <a href="/">Doctor</a>
-
-            <a href="Register">Register</a>
-            <a href="Login">Login</a>
-            <a href="Profile">Profile</a>
-          </div>
-        </nav>
-
+      <Header />
       <div className="row login-form">
         
         <div className="col-sm-12 col-lg-6 p-0">

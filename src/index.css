@@ -16,3 +16,39 @@ code {
   color: red;
   font-size: 14px;
 }
+.app-header .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #0d395d;
+  color: #fff;
+}
+
+.app-header .navbar h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.app-header .navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.app-header .navbar li {
+  margin-left: 10px;
+}
+
+.app-header .navbar a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.app-header .navbar a:hover {
+  background-color: #333;
+}
