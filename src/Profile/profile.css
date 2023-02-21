@@ -12,9 +12,6 @@ body{
     padding: 20px;
 }
 .login-form{
-    /* border: 1px solid #000; */
-    margin:  auto;
-    width: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
