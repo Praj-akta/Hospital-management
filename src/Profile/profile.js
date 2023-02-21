@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { auth } from "../firebase";
-import loginImg from "../assets/login-img.png";
+// import loginImg from "../assets/login-img.png";
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import "../Profile/profile.css";
@@ -51,12 +51,12 @@ function Register() {
     <div className="body-main">
       <nav className="nav">
           <div className="logo">
-            <img src={LOGO} />
+            <img src={LOGO} alt="/"/>
           </div>
           <div className="link-holder">
             <a href="/">Home</a>
 
-            <a href="">Doctor</a>
+            <a href="/">Doctor</a>
 
             <a href="Register">Register</a>
             <a href="Login">Login</a>
