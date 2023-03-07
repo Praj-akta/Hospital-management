@@ -12,8 +12,15 @@ function LoginForm({ title, role }) {
   function onsubmit(e) {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        navigate("/");
+      .then((data) => {
+        const { accessToken } = data.user;
+        localStorage.setItem('token', accessToken);
+        localStorage.setItem("email", email);
+        if(email === "admin@email.com") {
+          navigate("/admin/dashboard");
+        } else {
+          navigate("/");
+        }
       })
       .catch((err) => {
         console.log(err);
