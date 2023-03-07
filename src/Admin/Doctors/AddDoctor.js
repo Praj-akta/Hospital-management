@@ -30,7 +30,7 @@ function AddDoctor() {
         doctor:doctor,
       });
       console.log("Document written with ID:",docRef.id);
-      navigate("admin/doctors")  
+      navigate("/admin/doctors")  
     }
     catch(e){
       console.error("Error adding document:",e)
