@@ -49,6 +49,9 @@
       }
     }
   }
+  .mobile-sidebar {
+    display: none;
+  }
   .content {
     padding: 5px 10px;
     text-align: left;
@@ -211,3 +214,34 @@
     margin: auto;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .admin-sidebar {
+    display: none;
+  }
+  .admin-mobile-sidebar {
+    display: block;
+    position: relative;
+    z-index: 2;
+    .cross-icon {
+      font-size: 25px;
+      position: absolute;
+      right: 5px;
+    }
+  }
+  .mobile-sidebar {
+    display: block !important;
+    position: absolute;
+    top: 0;
+    left: 15px;
+    z-index: 1;
+    color: #fff;
+    font-size: 30px;
+  }
+  .admin-header {
+    margin: 0 !important;
+  }
+  .admin-navbar {
+    padding-left: 50px;
+  }
+} 

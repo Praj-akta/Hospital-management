@@ -6,7 +6,6 @@ export const initialState = {
 };
 
 const AdminReducer = (state = initialState, action) => {
-  console.log(action)
   switch (action.type) {
     case DOCTORS_LIST:
       return {
