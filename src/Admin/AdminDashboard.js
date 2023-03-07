@@ -15,7 +15,7 @@ function AdminDashboard() {
         </p>
       </div>
       <div className="dashboard-content">
-        <div className="col-sm-12 col-md-6 col-lg-4">
+        <div className="col-12 col-sm-12 col-md-6 col-lg-4">
           <div className="div1">
             <RiStethoscopeFill />
             <Link to="/admin/doctors">
@@ -24,7 +24,7 @@ function AdminDashboard() {
             </Link>
           </div>
         </div>
-        <div className="col-sm-12 col-md-6 col-lg-4">
+        <div className="col-12 col-sm-12 col-md-6 col-lg-4">
           <div className="div2">
             <HiUsers />
             <Link to="/admin/patients">
@@ -33,7 +33,7 @@ function AdminDashboard() {
             </Link>
           </div>
         </div>
-        <div className="col-sm-12 col-md-6 col-lg-4">
+        <div className="col-12 col-sm-12 col-md-6 col-lg-4">
           <div className="div3">
             <BsCalendarCheck />
             <Link>
@@ -42,7 +42,7 @@ function AdminDashboard() {
             </Link>
           </div>
         </div>
-        <div className="col-sm-12 col-md-6 col-lg-4">
+        <div className="col-12 col-sm-12 col-md-6 col-lg-4">
           <div className="div4">
             <TbReportSearch />
             <Link>
