@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { Table } from "react-bootstrap";
 import AdminHeader from "../AdminHeader";
 import AdminSidebar from "../AdminSidebar";
 import "../index.scss";
 
-function Doctors() {
+function AddDoctor() {
   const [docname, setDocname] = useState("");
   const [speciality, setSpeciality] = useState("");
   const [email, setEmail] = useState("");
@@ -95,53 +94,8 @@ function Doctors() {
                 onChange={(e) => setFees(e.target.value)}
               />
               <br />
-
-              {/* <label>Password:</label>
-              <br />
-              <input
-                className="form-control"
-                type="password"
-                value={password}
-                required
-                placeholder="Enter your password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <br />
-
-              <label>Confirm Password:</label>
-              <br />
-              <input
-                className="form-control"
-                type="password"
-                value={confirmPassword}
-                required
-                placeholder="Confirm password"
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              />
-              <br /> */}
-
               <button type="submit">Submit</button>
             </form>
-          </div>
-          <div className="manage_doc_container">
-            <div className="heading doctors-heading">
-            <h3>Manage Doctor</h3>
-            {/* <p className="breadcrumbs">
-              Admin {">"} <span className="curr-page">Manage Doctor</span>{" "}
-            </p> */}
-          </div>
-            <Table responsive stripedble>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Specialization</th>
-                  <th>Doctor Name</th>
-                  <th>Email</th>
-                  <th>Phone No</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-            </Table>
           </div>
         </div>
       </div>
@@ -149,4 +103,4 @@ function Doctors() {
   );
 }
 
-export default Doctors;
+export default AddDoctor;

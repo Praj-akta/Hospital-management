@@ -2,7 +2,7 @@
   display: flex;
   .admin-header {
     width: 100%;
-    margin-left: 300px;
+    margin-left: 250px;
   }
   .logo {
     padding: 2px !important;
@@ -13,7 +13,7 @@
     }
   }
   .admin-sidebar {
-    width: 300px;
+    width: 250px;
     height: 100vh;
     position: fixed;
     border-right: 1px solid #eee;
@@ -29,6 +29,22 @@
           color: #000;
           font-weight: bold;
           text-decoration: none;
+        }
+        .heading {
+          cursor: pointer;
+          font-weight: bold;
+          position: relative;
+          .arrow {
+            font-size: 35px;
+            position: absolute;
+            right: 0;
+            top: -5px;
+          }
+        }
+        .children {
+          div {
+            padding-top: 7px;
+          }
         }
       }
     }
@@ -159,8 +175,7 @@
   form {
     width: 90%;
     margin: auto;
-    border: 1px solid #000;
-    padding: 50px;
+    padding: 10px 0;
   }
   label {
     float: left;
@@ -178,6 +193,7 @@
     color: white;
     border: none;
     border-radius: 4px;
+    margin-bottom: 30px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   }
 }

@@ -2,13 +2,14 @@
 import Home from "./Home/home";
 import Login from "./Login/login";
 import Admin from "./Admin";
-import Doctors from "./Admin/Doctors";
 import Patients from "./Admin/Patients";
+import Profile from "./Profile/profile";
 import Register from "./Register/register";
 import AdminLogin from "./Login/AdminLogin";
 import ChangePassword from "./ChangePassword";
 import DoctorLogin from "./Login/DoctorsLogin";
-import Profile from "./Profile/profile";
+import AddDoctor from "./Admin/Doctors/AddDoctor";
+import ManageDoctor from "./Admin/Doctors/ManageDoctor";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import './App.css';
 
@@ -25,7 +26,8 @@ function App() {
           <Route path="/change-password" element={<ChangePassword />}></Route>
           <Route exact path="/admin/dashboard" element={<Admin />}></Route>
           <Route exact path="/admin/patients" element={<Patients />}></Route>
-          <Route exact path="/admin/doctors" element={<Doctors />}></Route>
+          <Route exact path="/admin/doctors" element={<ManageDoctor />}></Route>
+          <Route exact path="/admin/add-doctor" element={<AddDoctor />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
         </Routes>
       </div>
