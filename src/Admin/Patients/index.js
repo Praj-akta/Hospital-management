@@ -1,42 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
 import { db } from "../../firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { Table } from "react-bootstrap";
 import AdminHeader from "../AdminHeader";
 import AdminSidebar from "../AdminSidebar";
+import { collection, getDocs } from "firebase/firestore";
 
 function Patients() {
   const [patients, setPatients] = useState([]);
   useEffect(() => {
-
-      getDocs(collection(db, "users")).then((querySnapshot) => {
-        const newData = querySnapshot.docs.map((doc) => doc.data().user);
-        setPatients(newData);
-        // console.log(newData)
-      });
-    // const patientsRef = db.ref("patients");
-
-    // patientsRef.on("value", (snapshot) => {
-    //   console.log(snapshot.val());
-
-    //   const patientsData = [];
-
-    //   snapshot.forEach((patient) => {
-    //     const data = patient.val();
-    //     patientsData.push(data);
-    //   });
-    //   console.log(patientsData);
-
-    //   setPatients(patientsData);
-    // });
-
-    // fetch("http://localhost:3002/api/patients", {
-    //   method: "get",
-    //   headers: { "Content-Type": "application/json" },
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => setPatients(data))
-    //   .catch((error) => console.log(error));
+    getDocs(collection(db, "users")).then((querySnapshot) => {
+      const newData = querySnapshot.docs.map((doc) => doc.data().user);
+      setPatients(newData);
+    });
   }, []);
 
   return (
