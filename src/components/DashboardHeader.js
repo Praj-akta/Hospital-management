@@ -1,9 +1,10 @@
 import React from "react";
 import { Dropdown } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import "./index.scss";
+import "../Admin/index.scss";
 
-function AdminHeader() {
+function DashboardHeader() {
+  const title = localStorage.getItem("role");
   const navigate = useNavigate();
 
   const onLogout = () => {
@@ -11,7 +12,7 @@ function AdminHeader() {
     localStorage.removeItem("email");
     localStorage.removeItem("role");
     navigate("/");
-  }
+  };
 
   return (
     <div className="navbar admin-navbar">
@@ -20,10 +21,16 @@ function AdminHeader() {
       </div>
       <div>
         <Dropdown>
-          <Dropdown.Toggle variant="transparent">Admin</Dropdown.Toggle>
+          <Dropdown.Toggle variant="transparent">
+            {title && title.toLocaleLowerCase()}
+          </Dropdown.Toggle>
           <Dropdown.Menu>
-            <Dropdown.Item href="/change-password">Change Password</Dropdown.Item>
-            <Dropdown.Item onClick={_ => onLogout()}>Logout</Dropdown.Item>
+            {title === "admin" && (
+              <Dropdown.Item href="/change-password">
+                Change Password
+              </Dropdown.Item>
+            )}
+            <Dropdown.Item onClick={(_) => onLogout()}>Logout</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </div>
@@ -31,4 +38,4 @@ function AdminHeader() {
   );
 }
 
-export default AdminHeader;
+export default DashboardHeader;

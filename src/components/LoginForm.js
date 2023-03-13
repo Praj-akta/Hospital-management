@@ -1,23 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { auth } from "../firebase";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 function LoginForm({ title, role }) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const existingRole = localStorage.getItem("role");
+
   const [err, setErr] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    if (existingRole === "admin") {
+      navigate("/admin/dashboard");
+    } else if (existingRole === "user") {
+      navigate("/user");
+    } else if (existingRole === "doctor") {
+      navigate("/doctor/dashboard");
+    }
+  }, [existingRole, navigate]);
 
   function onsubmit(e) {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((data) => {
         const { accessToken } = data.user;
-        localStorage.setItem('token', accessToken);
+        localStorage.setItem("role", role);
         localStorage.setItem("email", email);
-        if(email === "admin@email.com") {
+        localStorage.setItem("token", accessToken);
+
+        dispatch({ type: "SET_USER_DETAILS", data: { ...data.user, role } });
+        if (role === "admin") {
           navigate("/admin/dashboard");
+        } else if (role === "user") {
+          navigate("/user");
+        } else if (role === "doctor") {
+          navigate("/doctor/dashboard");
         } else {
           navigate("/");
         }
@@ -31,6 +52,7 @@ function LoginForm({ title, role }) {
         }
       });
   }
+
   return (
     <div className="login-form">
       <h3> {title} </h3>

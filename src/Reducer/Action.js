@@ -1,2 +1,3 @@
 export const DOCTORS_LIST = "DOCTORS_LIST";
 export const PATIENTS_LIST = "DELETE_ITEM";
+export const SET_USER_DETAILS = "SET_USER_DETAILS";

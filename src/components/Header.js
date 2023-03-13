@@ -2,15 +2,8 @@ import React from "react";
 // import Logo from "../images/logo.png";
 // import { auth } from "../firebase";
 // import { signOut } from "firebase/auth";
-// import { useNavigate } from 'react-router-dom';
 
 function Header() {
-  // const navigate = useNavigate();
-  // const logout = () => {
-  //   signOut(auth)
-  //   .then(() => navigate("/login"))
-  //   .catch(err => console.log(err));
-  // }
   return (
     <header className="app-header">
       <nav className="navbar">
@@ -19,10 +12,7 @@ function Header() {
           <li> <a href="/">Home</a> </li>
           <li> <a href="/login">Login</a> </li>
           <li> <a href="/register">Register</a> </li>
-          <li> <a href="/profile">Profile</a> </li>
           <li> <a href="/admin/dashboard">Admin</a> </li>
-          <li> <a href="/admin/doctors">Doctors</a> </li>
-          {/* <li>  <a href="/" onClick={_ => logout()}>Logout</a> </li> */}
         </ul>
       </nav>
       {/* <nav className="nav">
