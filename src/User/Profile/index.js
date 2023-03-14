@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../../firebase";
 import Sidebar from "../../components/Sidebar";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, doc, getDocs, updateDoc } from "firebase/firestore";
 import DashboardHeader from "../../components/DashboardHeader";
 import "./index.scss";
 
@@ -12,12 +12,19 @@ function Profile() {
   const [dob, setDateOfBirth] = useState("");
   const [lastname, setLastName] = useState("");
   const [firstname, setFirstname] = useState("");
+  const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
     getDocs(collection(db, "users")).then((querySnapshot) => {
-      const usersData = querySnapshot.docs.map((doc) => doc.data().user);
+      const usersData = querySnapshot.docs.map((doc) => {
+        const userId = doc.id;
+        const data = doc.data().user;
+        const result = {userId, ...data};
+        return result;
+      });
       const currentUser = usersData.find(({ email }) => email === currentEmail);
       if (currentUser) {
+        setCurrentUser(currentUser);
         setEmail(currentUser.email);
         setFirstname(currentUser.firstname);
         setLastName(currentUser.lastname);
@@ -26,6 +33,20 @@ function Profile() {
       }
     });
   }, [currentEmail]);
+
+  async function onSubmit(e) {
+    e.preventDefault();
+    const _userId = doc(db, "users/", `${currentUser?.userId}`);
+    updateDoc(_userId, {
+      user: {
+        firstname,
+        lastname,
+        email,
+        dob,
+        address,
+      },
+    }).then(() => alert("Your profile has been updated."));
+  }
 
   return (
     <div className="admin-dashboard">
@@ -36,7 +57,7 @@ function Profile() {
           <div className="row login-form">
             <div className="col-sm-12 col-lg-6 p-0">
               <div className="login-form-holder">
-                <form name="editProfile">
+                <form name="editProfile" onSubmit={onSubmit}>
                   <h3>Edit Profile</h3>
 
                   <label>First Name:</label>
