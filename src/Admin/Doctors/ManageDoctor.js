@@ -32,7 +32,7 @@ function ManageDoctor() {
             </p>
           </div>
           <div className="manage_doc_container">
-            <Table responsive stripedble>
+            <Table responsive stripedble="true">
               <thead>
                 <tr>
                   <th>#</th>

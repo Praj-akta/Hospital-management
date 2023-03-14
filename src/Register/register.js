@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { auth,db } from "../firebase";
+import { auth, db } from "../firebase";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
+import { collection, addDoc } from "firebase/firestore";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import "../Login/login.scss";
-import { collection, addDoc } from "firebase/firestore";
-
 
 function Register() {
   const navigate = useNavigate();
@@ -18,12 +17,7 @@ function Register() {
   const [address, setAddress] = useState("");
   const [dob, setDateOfBirth] = useState("");
 
-  
-
-
-
   async function register(e) {
-    
     e.preventDefault();
     if (password === confirmPassword) {
       //firebase create with email password
@@ -35,38 +29,16 @@ function Register() {
           }
         });
 
-        const user = {
-          firstname,
-          lastname,
-          address,
-          email,
-          dob
-        }
-        try {
-          const userRef =  await addDoc(collection(db, "users"), {
-            user: user,    
-          });
-          console.log("Document written with ID: ", userRef.id);
-          navigate("/login")
-        } catch (e) {
-          console.error("Error adding document: ", e);
-        }
-
-      //post register details to sql database
-      // fetch("http://localhost:3002/api/addUser", {
-      //   method: "post",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify({
-      //     firstname: firstname,
-      //     lastname: lastname,
-      //     email: email,
-      //     address: address,
-      //     dob: dob,
-      //   }),
-      // })
-      //   .then((res) => res.json())
-      //   .then((data) => console.log(data))
-      //   .catch((error) => console.log(error));
+      const user = { firstname, lastname, address, email, dob};
+      try {
+        const userRef = await addDoc(collection(db, "users"), {
+          user: user,
+        });
+        console.log("Data added", userRef.id);
+        navigate("/login");
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
     } else setErr("Password Does Not Match");
   }
 
