@@ -220,7 +220,7 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  padding: 0 250px;
+  padding: 10px 250px 30px 250px;
 }
 
 .department-box-container {
@@ -260,10 +260,6 @@
   font-weight: 600;
   padding: 10px !important;
 }
-.img-container-department img {
-  width: 100%;
-  height: 300px;
-}
 
 .top-namee p {
   font-size: 18px;
@@ -274,9 +270,7 @@
 }
 
 .top-namee {
-  /* padding:  0 690px; */
   text-align: center;
-  padding-bottom: 30px;
 }
 
 .doc-card img {
@@ -395,13 +389,13 @@
 
 @media screen and (max-width: 1200px) {
   .department-card {
-    padding: 0;
+    padding: 10px 50px 30px 50px;
   }
 }
 
 @media screen and (max-width: 992px) {
   .department-card {
-    padding: 0;
+    padding: 10px 0 30px 0;
   }
   .left-container img {
     width: 400px;
@@ -442,6 +436,11 @@
     flex-direction: column;
     align-items: flex-start;
     margin-right: 0;
+  }
+
+  .img-container-department img {
+    width: 100%;
+    height: 300px;
   }
 
   .link-holder {
