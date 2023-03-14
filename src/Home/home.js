@@ -116,6 +116,7 @@ function Home() {
         {/* Department */}
         <div className="department">
           <div className="">
+
             <div className="top-namee">
               <h3>Our Departments</h3>
               {/* <p>
@@ -136,62 +137,63 @@ function Home() {
                   <a href="/">Learn More</a>
                   </div>
                 </div>
-              </div>
+            </div>
 
-              <div className="department-box-container">
-                <div className="img-container-department">
-                  <img src={DEPARTMENT2} alt="" />
-                </div>
-                <div className="lefttt">
-                <h3>Skin Care</h3>
-                <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                <a href="/">Learn More</a>
-                </div>
+            <div className="department-box-container">
+              <div className="img-container-department">
+                <img src={DEPARTMENT2} alt="" />
               </div>
+              <div className="lefttt">
+              <h3>Skin Care</h3>
+              <p>Esteem spirit temper too say adieus who direct esteem.</p>
+              <a href="/">Learn More</a>
+              </div>
+            </div>
 
-              <div className="department-box-container">
-                <div className="img-container-department">
-                  <img src={DEPARTMENT5} alt="" />
-                </div>
-                <div className="lefttt">
-                <h3>Pathology</h3>
-                <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                <a href="/">Learn More</a>
-                </div>
+            <div className="department-box-container">
+              <div className="img-container-department">
+                <img src={DEPARTMENT5} alt="" />
               </div>
+              <div className="lefttt">
+              <h3>Pathology</h3>
+              <p>Esteem spirit temper too say adieus who direct esteem.</p>
+              <a href="/">Learn More</a>
+              </div>
+            </div>
 
-              <div className="department-box-container">
-                <div className="img-container-department">
-                  <img src={DEPARTMENT4} alt="" />
-                </div>
-                <div className="lefttt">
-                <h3>Medicine</h3>
-                <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                <a href="/">Learn More</a>
-                </div>
+            <div className="department-box-container">
+              <div className="img-container-department">
+                <img src={DEPARTMENT4} alt="" />
               </div>
+              <div className="lefttt">
+              <h3>Medicine</h3>
+              <p>Esteem spirit temper too say adieus who direct esteem.</p>
+              <a href="/">Learn More</a>
+              </div>
+            </div>
 
-              <div className="department-box-container">
-                <div className="img-container-department">
-                  <img src={DEPARTMENT3} alt="" />
-                </div>
-                <div className="lefttt">
-                <h3>Dental</h3>
-                <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                <a href="/">Learn More</a>
-                </div>
+            <div className="department-box-container">
+              <div className="img-container-department">
+                <img src={DEPARTMENT3} alt="" />
               </div>
+              <div className="lefttt">
+              <h3>Dental</h3>
+              <p>Esteem spirit temper too say adieus who direct esteem.</p>
+              <a href="/">Learn More</a>
+              </div>
+            </div>
 
-              <div className="department-box-container">
-                <div className="img-container-department">
-                  <img src={DEPARTMENT6} alt="" />
-                </div>
-                <div className="lefttt">
-                <h3>Diagnostic Test</h3>
-                <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                <a href="/">Learn More</a>
-                </div>
+            <div className="department-box-container">
+              <div className="img-container-department">
+                <img src={DEPARTMENT6} alt="" />
               </div>
+              <div className="lefttt">
+              <h3>Diagnostic Test</h3>
+              <p>Esteem spirit temper too say adieus who direct esteem.</p>
+              <a href="/">Learn More</a>
+              </div>
+            </div>
+            
             </div>
           </div>
         </div>
