@@ -1,27 +1,23 @@
 import React, { useEffect, useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { db } from "../../firebase";
 import Sidebar from "../../components/Sidebar";
+import { collection, getDocs } from "firebase/firestore";
 import DashboardHeader from "../../components/DashboardHeader";
 import "./index.scss";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../firebase";
 
 function Profile() {
-  // const navigate = useNavigate();
-
   const currentEmail = localStorage.getItem("email");
-
   const [email, setEmail] = useState("");
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastName] = useState("");
   const [address, setAddress] = useState("");
   const [dob, setDateOfBirth] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [firstname, setFirstname] = useState("");
 
   useEffect(() => {
     getDocs(collection(db, "users")).then((querySnapshot) => {
       const usersData = querySnapshot.docs.map((doc) => doc.data().user);
       const currentUser = usersData.find(({ email }) => email === currentEmail);
-      if(currentUser) {
+      if (currentUser) {
         setEmail(currentUser.email);
         setFirstname(currentUser.firstname);
         setLastName(currentUser.lastname);
@@ -111,14 +107,13 @@ function Profile() {
                     Save
                   </button>
                 </form>
-                
               </div>
             </div>
           </div>
         </div>
-        </div>
+      </div>
     </div>
   );
 }
-    
+
 export default Profile;

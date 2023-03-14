@@ -1,15 +1,16 @@
 
+import User from "./User";
+import Admin from "./Admin";
 import Home from "./Home/home";
 import Login from "./Login/login";
-import Admin from "./Admin";
 import Patients from "./Admin/Patients";
 import Profile from "./User/Profile";
 import Register from "./Register/register";
 import AdminLogin from "./Login/AdminLogin";
-import User from "./User";
 import ChangePassword from "./ChangePassword";
 import DoctorLogin from "./Login/DoctorsLogin";
 import AddDoctor from "./Admin/Doctors/AddDoctor";
+import BookAppointment from "./User/BookAppointment";
 import ManageDoctor from "./Admin/Doctors/ManageDoctor";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import './App.css';
@@ -33,6 +34,7 @@ function App() {
           {/* user routes */}
           <Route path="/user" element={<User />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/book-appointment" element={<BookAppointment />}></Route>
         </Routes>
       </div>
     </Router>
