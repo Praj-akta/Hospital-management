@@ -1,16 +1,14 @@
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
 import { auth,db } from "../firebase";
 import Header from "../components/Header";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import "../Login/login.scss";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
 
 
 function Register() {
   const navigate = useNavigate();
-  const { state } = useLocation();
-  console.log(state);
   const [err, setErr] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,23 +17,7 @@ function Register() {
   const [lastname, setLastName] = useState("");
   const [address, setAddress] = useState("");
   const [dob, setDateOfBirth] = useState("");
-  const[patient,setPatients] = useState();
 
-  useEffect(() => {
-    if(state){
-      setEmail(state.email)
-      setFirstname(state.firstname)
-      setLastName(state.lastname)
-      setDateOfBirth(state.dob)
-      setAddress(state.address)
-    }
-    getDocs(collection(db, "users")).then((querySnapshot) => {
-      const newData = querySnapshot.docs.map((doc) => doc.data().user);
-      console.log(newData)
-      setPatients(newData);
-      // console.log(newData)
-    });
-  }, [])
   
 
 
@@ -61,7 +43,9 @@ function Register() {
           dob
         }
         try {
-          const userRef =  await addDoc(collection(db, "users"),user);
+          const userRef =  await addDoc(collection(db, "users"), {
+            user: user,    
+          });
           console.log("Document written with ID: ", userRef.id);
           navigate("/login")
         } catch (e) {
@@ -118,7 +102,7 @@ function Register() {
                 onChange={(e) => setLastName(e.target.value)}
               />
 
-         {state ? <></>: <>     <label>Email:</label>
+              <label>Email:</label>
               <br />
               <input
                 className="form-control"
@@ -128,7 +112,6 @@ function Register() {
                 required
                 onChange={(e) => setEmail(e.target.value)}
               />
-              </>}
 
               <label>Address:</label>
               <br />
@@ -174,7 +157,7 @@ function Register() {
 
               <br />
               <button type="submit" className="login-btn">
-                {state ? "Update" : "Register"}
+                Register
               </button>
             </form>
             <div>
