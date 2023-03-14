@@ -51,8 +51,8 @@ function EditPatient() {
       <AdminSidebar />
       <div className="admin-header">
         <AdminHeader />
-        <div className="row login-form register-form">
-          <h3>EditPatient</h3>
+        <div className="row login-form register-form edit-form">
+          <h3>Edit Patient</h3>
           <div className="col-sm-10 col-lg-6 col-xl-6 col-md-8 p-0 login-form-container">
             <div className="login-form-holder">
               <form onSubmit={onSubmit} name="registerform">
