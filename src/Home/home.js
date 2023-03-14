@@ -266,21 +266,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="right-emrgy">
-            <div className="emrgy-holder">
-              <div className="jg-holder">
-                <p>Make an Online Appointment</p>
-                {/* <p>
-                  To make an online appointment, simply visit our hospital's
-                  website and follow the easy steps to schedule a date and time
-                  that works best for you.
-                </p> */}
-              </div>
-              <div className="gg-btn">
-                <a href="/">Make an Online Appointment</a>
-              </div>
-            </div>
-          </div>
+
         </div>
 
         {/* footer */}
@@ -303,8 +289,7 @@ function Home() {
                 <h3>Useful Links</h3>
               </div>
               <div className="namee-con">
-                <p>About</p>
-                <p>Blog</p>
+                <p>Doctors</p>
                 <p>About</p>
                 <p>Contact</p>
                 <p>Appointment</p>
