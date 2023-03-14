@@ -252,12 +252,17 @@
 
 .department {
   margin: 85px 0px;
+  background-color: #eee;
 }
 
 .top-namee h3 {
   font-size: 38px;
   font-weight: 600;
-  padding: 20px 0;
+  padding: 10px !important;
+}
+.img-container-department img {
+  width: 100%;
+  height: 300px;
 }
 
 .top-namee p {
@@ -460,7 +465,7 @@
 
   .sub-holder {
     top: 240px;
-    left: 20px;
+    left: 30px;
     width: 80%;
     margin-right: 0;
     text-align: center;
@@ -480,6 +485,9 @@
 
   .ogbg {
     padding: 0px 20px;
+    flex-direction: column;
+    gap: 0;
+    padding-top: 300px;
   }
 
   .container {
