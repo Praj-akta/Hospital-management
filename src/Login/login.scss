@@ -61,14 +61,17 @@ body {
     background: transparent;
   }
   .login-btn {
-    padding: 7px 25px;
-    margin-bottom: 10px;
-    background-color: green;
-    border-radius: 7px;
+    float: left;
+    padding: 8px 28px;
     font-size: 18px;
-    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: #0d395d;
+    color: white;
     border: none;
-    outline: none;
+    border-radius: 4px;
+    margin: 15px 0;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   }
   .login-links {
     width: 50%;
@@ -77,6 +80,15 @@ body {
     margin: 0 auto;
   }
   
+}
+.edit-form{
+  background-image: none;
+  display: flex;
+  height: 95vh;
+  padding: 25px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media only screen and (max-width: 768px) {
