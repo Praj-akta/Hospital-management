@@ -1,42 +1,60 @@
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { db } from "../../firebase";
-import { collection, getDocs } from "firebase/firestore";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import AdminHeader from "../AdminHeader";
 import AdminSidebar from "../AdminSidebar";
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 function Patients() {
+  const navigate = useNavigate();
   const [patients, setPatients] = useState([]);
+
+  const onCLickEdit = (index) => {
+    console.log("abc", patients[index]);
+    navigate("/admin/patients/edit", { state: patients[index] });
+  };
+  const onCLickDelete = async (value, index) => {
+    const email = value.email;
+    try {
+      const q = await query(
+        collection(db, "users"),
+        where("email", "==", "neel.gajera1431111@gmail.com")
+      );
+      const querySnapshot = await getDocs(q);
+
+      if (querySnapshot.empty) {
+        console.log("No matching documents");
+      } else {
+        querySnapshot.forEach((doc) => {
+          console.log(doc.id, " => ", doc.data());
+        });
+      }
+    } catch (error) {
+      console.error("Error finding user: ", error);
+    }
+  };
+
   useEffect(() => {
-
-      getDocs(collection(db, "users")).then((querySnapshot) => {
-        const newData = querySnapshot.docs.map((doc) => doc.data().user);
-        setPatients(newData);
-        // console.log(newData)
+    getDocs(collection(db, "users")).then((querySnapshot) => {
+      const newData = querySnapshot.docs.map((doc) => {
+        const id = doc.id;
+        const value = doc.data().user;
+        const data = { id, ...value };
+        return data;
       });
-    // const patientsRef = db.ref("patients");
-
-    // patientsRef.on("value", (snapshot) => {
-    //   console.log(snapshot.val());
-
-    //   const patientsData = [];
-
-    //   snapshot.forEach((patient) => {
-    //     const data = patient.val();
-    //     patientsData.push(data);
-    //   });
-    //   console.log(patientsData);
-
-    //   setPatients(patientsData);
-    // });
-
-    // fetch("http://localhost:3002/api/patients", {
-    //   method: "get",
-    //   headers: { "Content-Type": "application/json" },
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => setPatients(data))
-    //   .catch((error) => console.log(error));
+      setPatients(newData);
+      //  console.log(newData)
+    });
   }, []);
 
   return (
@@ -74,6 +92,12 @@ function Patients() {
                         <td>{value.email}</td>
                         <td>{value.gender}</td>
                         <td>{value.dob}</td>
+                        <td>
+                          <FaEdit onClick={() => onCLickEdit(index)} />
+                          <MdDelete
+                            onClick={() => onCLickDelete(value, index)}
+                          />
+                        </td>
                       </tr>
                     );
                   })}

@@ -12,6 +12,7 @@ import AddDoctor from "./Admin/Doctors/AddDoctor";
 import ManageDoctor from "./Admin/Doctors/ManageDoctor";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import './App.css';
+import EditPatient from "./Admin/Patients/editPatients";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/admin/doctors" element={<ManageDoctor />}></Route>
           <Route exact path="/admin/add-doctor" element={<AddDoctor />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/admin/patients/edit" element={<EditPatient />}></Route>
         </Routes>
       </div>
     </Router>
