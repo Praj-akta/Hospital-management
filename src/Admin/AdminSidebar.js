@@ -7,7 +7,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import "./index.scss";
 
 function AdminSidebar() {
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(true);
   const [toggleMenu, setToggleMenu] = useState(false);
   const _class = toggleMenu
     ? "admin-sidebar admin-mobile-sidebar"

@@ -60,8 +60,7 @@ function BookAppointment() {
                             <Option value="Select Services">Click to see options</Option>
                             <Option value="ENT">ENT</Option>
                             <Option value="Neurologists">Neurologists</Option>
-                            <Option value="Orthopedics">Orthopedics</Option>
-                            <Option value="Pedicure">Pedicure</Option>
+                            <Option value="Orthopedics">Orthopedics</Option>s
                           </Dropdown>
                           {/* <p>You selected {optionValue} </p> */}
                         </div>

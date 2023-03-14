@@ -15,6 +15,7 @@ import ManageDoctor from "./Admin/Doctors/ManageDoctor";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import './App.css';
 import EditPatient from "./Admin/Patients/editPatients";
+import EditDoctors from "./Admin/Doctors/editDoctors";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route exact path="/admin/patients" element={<Patients />}></Route>
           <Route exact path="/admin/doctors" element={<ManageDoctor />}></Route>
           <Route exact path="/admin/add-doctor" element={<AddDoctor />}></Route>
+          <Route exact path="/admin/doctors/edit" element={<EditDoctors />}></Route>
           {/* user routes */}
           <Route path="/user" element={<User />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
