@@ -6,7 +6,7 @@ import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import AdminSidebar from "../AdminSidebar";
 import { useNavigate } from "react-router-dom";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection,doc, getDocs, deleteDoc } from "firebase/firestore";
 
 function Patients() {
   const navigate = useNavigate();
@@ -16,20 +16,10 @@ function Patients() {
     navigate("/admin/patients/edit", { state: patients[index] });
   };
 
-  const onCLickDelete = async (email) => {
+  const onCLickDelete = async (userId) => {
     try {
-      const q = await query(
-        collection(db, "users"),
-        where("email", "==", email)
-      );
-      const querySnapshot = await getDocs(q);
-      if (querySnapshot.empty) {
-        console.log("No matching documents");
-      } else {
-        querySnapshot.forEach((doc) => {
-          console.log(doc.id, " => ", doc.data());
-        });
-      }
+    const userRef = doc(collection(db, "users"), userId);
+    await deleteDoc(userRef).then(() => window.location.reload());
     } catch (error) {
       console.error("Error finding user: ", error);
     }
@@ -93,7 +83,7 @@ function Patients() {
                           <MdDelete
                             size="25"
                             color="red"
-                            onClick={() => onCLickDelete(value.email)}
+                            onClick={() => onCLickDelete(value.id)}
                           />
                         </td>
                       </tr>
