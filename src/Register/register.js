@@ -10,12 +10,12 @@ function Register() {
   const navigate = useNavigate();
   const [err, setErr] = useState(null);
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastName] = useState("");
   const [address, setAddress] = useState("");
   const [dob, setDateOfBirth] = useState("");
+  const [password, setPassword] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [firstname, setFirstname] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   async function register(e) {
     e.preventDefault();
@@ -29,7 +29,7 @@ function Register() {
           }
         });
 
-      const user = { firstname, lastname, address, email, dob};
+      const user = { firstname, lastname, address, email, dob };
       try {
         await addDoc(collection(db, "users"), {
           user: user,

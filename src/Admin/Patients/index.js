@@ -6,7 +6,7 @@ import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import AdminSidebar from "../AdminSidebar";
 import { useNavigate } from "react-router-dom";
-import { collection, getDocs, query, where  } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 function Patients() {
   const navigate = useNavigate();
@@ -15,11 +15,12 @@ function Patients() {
   const onCLickEdit = (index) => {
     navigate("/admin/patients/edit", { state: patients[index] });
   };
-  const onCLickDelete = async (value, index) => {
+
+  const onCLickDelete = async (email) => {
     try {
       const q = await query(
         collection(db, "users"),
-        where("email", "==", "neel.gajera1431111@gmail.com")
+        where("email", "==", email)
       );
       const querySnapshot = await getDocs(q);
       if (querySnapshot.empty) {
@@ -66,8 +67,9 @@ function Patients() {
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Email</th>
-                  <th>Gender</th>
+                  <th>Address</th>
                   <th>Date of birth</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -79,12 +81,19 @@ function Patients() {
                         <td>{value.firstname}</td>
                         <td>{value.lastname}</td>
                         <td>{value.email}</td>
-                        <td>{value.gender}</td>
+                        <td>{value.address}</td>
                         <td>{value.dob}</td>
                         <td>
-                          <FaEdit onClick={() => onCLickEdit(index)} />
+                          <FaEdit
+                            size="25"
+                            color="green"
+                            onClick={() => onCLickEdit(index)}
+                          />
+                          {"   "}
                           <MdDelete
-                            onClick={() => onCLickDelete(value, index)}
+                            size="25"
+                            color="red"
+                            onClick={() => onCLickDelete(value.email)}
                           />
                         </td>
                       </tr>

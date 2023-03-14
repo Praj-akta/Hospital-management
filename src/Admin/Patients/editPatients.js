@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
-import { useLocation, useNavigate } from "react-router-dom";
-import "../../Login/login.scss";
-import AdminSidebar from "../AdminSidebar";
 import AdminHeader from "../AdminHeader";
+import AdminSidebar from "../AdminSidebar";
+import { useLocation, useNavigate } from "react-router-dom";
 import { collection, doc, getDocs, updateDoc } from "firebase/firestore";
+import "../../Login/login.scss";
 
 function EditPatient() {
   const navigate = useNavigate();
