@@ -1,39 +1,49 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { db } from "../../firebase";
 import AdminHeader from "../AdminHeader";
 import AdminSidebar from "../AdminSidebar";
-import { useNavigate } from "react-router-dom";
-import { addDoc, collection } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
+import { useLocation, useNavigate } from "react-router-dom";
 import "../index.scss";
 
-function AddDoctor() {
+function EditDoctors() {
   const navigate = useNavigate();
+  const { state } = useLocation();
   const [fees, setFees] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [docname, setDocname] = useState("");
   const [address, setAddress] = useState("");
   const [speciality, setSpeciality] = useState("");
+  const _doctorId = doc(db, "doctors/", `${state?.id}`);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const doctor = {
-      name: docname,
-      address,
-      email,
-      phone,
-      fees,
-      speciality,
-    };
-    try {
-      await addDoc(collection(db, "doctors"), {
-        doctor: doctor,
-      });
-      navigate("/admin/doctors");
-    } catch (e) {
-      console.error("Error adding document:", e);
+  useEffect(() => {
+    if (state) {
+      setFees(state.fees);
+      setEmail(state.email);
+      setDocname(state.name);
+      setPhone(state.phone);
+      setAddress(state.address);
+      setSpeciality(state.speciality);
     }
-  };
+  }, [state]);
+
+  async function onSubmit(e) {
+    e.preventDefault();
+    updateDoc(_doctorId, {
+      doctor: {
+        name: docname,
+        email,
+        phone,
+        address,
+        fees,
+        speciality,
+      },
+    }).then(() => {
+      alert("Data has been updated");
+      navigate("/admin/doctors");
+    });
+  }
 
   return (
     <div className="admin-dashboard">
@@ -42,13 +52,13 @@ function AddDoctor() {
         <AdminHeader />
         <div className="content">
           <div className="heading doctors-heading">
-            <h3>Add Doctor</h3>
+            <h3>Edit Doctor</h3>
             <p className="breadcrumbs">
-              Admin {">"} <span className="curr-page">Add Doctor</span>{" "}
+              Admin {">"} <span className="curr-page">Edit Doctor</span>{" "}
             </p>
           </div>
           <div className="add_doc_container">
-            <form onSubmit={(e) => handleSubmit(e)}>
+            <form onSubmit={(e) => onSubmit(e)}>
               <label>Name:</label>
               <br />
               <input
@@ -131,7 +141,12 @@ function AddDoctor() {
                 onChange={(e) => setFees(e.target.value)}
               />
               <br />
-              <button type="submit">Submit</button>
+              <button type="button" onClick={(_) => navigate("/admin/doctors")}>
+                Cancel
+              </button>
+              <button type="submit" className="mx-4">
+                Submit
+              </button>
             </form>
           </div>
         </div>
@@ -140,4 +155,4 @@ function AddDoctor() {
   );
 }
 
-export default AddDoctor;
+export default EditDoctors;

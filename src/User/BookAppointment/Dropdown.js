@@ -4,7 +4,6 @@ import {
   StyledSelect,
   StyledOption,
   StyledLabel,
-  StyledButton
 } from "./styles.js";
 
 export function Dropdown(props) {
@@ -14,7 +13,6 @@ export function Dropdown(props) {
       <StyledSelect id="services" name="services">
         {props.children}
       </StyledSelect>
-      {/* <StyledButton type="submit" value={props.buttonText} /> */}
     </DropdownWrapper>
   );
 }
