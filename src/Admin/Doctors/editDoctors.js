@@ -115,6 +115,7 @@ function EditDoctors() {
                 type="tel"
                 value={phone}
                 required
+                maxLength={10}
                 placeholder="Enter Doctor's Contact No:"
                 onChange={(e) => setPhone(e.target.value)}
               />
