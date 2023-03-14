@@ -9,6 +9,13 @@ function BookAppointment() {
       <Sidebar />
       <div className="admin-header">
         <DashboardHeader />
+        
+        <div>
+
+
+
+        </div>
+
       </div>
     </div>
   );

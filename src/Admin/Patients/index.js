@@ -2,14 +2,46 @@ import React, { useEffect, useState } from "react";
 import { db } from "../../firebase";
 import { Table } from "react-bootstrap";
 import AdminHeader from "../AdminHeader";
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 import AdminSidebar from "../AdminSidebar";
-import { collection, getDocs } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
+import { collection, getDocs, query, where  } from "firebase/firestore";
 
 function Patients() {
+  const navigate = useNavigate();
   const [patients, setPatients] = useState([]);
+
+  const onCLickEdit = (index) => {
+    navigate("/admin/patients/edit", { state: patients[index] });
+  };
+  const onCLickDelete = async (value, index) => {
+    try {
+      const q = await query(
+        collection(db, "users"),
+        where("email", "==", "neel.gajera1431111@gmail.com")
+      );
+      const querySnapshot = await getDocs(q);
+      if (querySnapshot.empty) {
+        console.log("No matching documents");
+      } else {
+        querySnapshot.forEach((doc) => {
+          console.log(doc.id, " => ", doc.data());
+        });
+      }
+    } catch (error) {
+      console.error("Error finding user: ", error);
+    }
+  };
+
   useEffect(() => {
     getDocs(collection(db, "users")).then((querySnapshot) => {
-      const newData = querySnapshot.docs.map((doc) => doc.data().user);
+      const newData = querySnapshot.docs.map((doc) => {
+        const id = doc.id;
+        const value = doc.data().user;
+        const data = { id, ...value };
+        return data;
+      });
       setPatients(newData);
     });
   }, []);
@@ -49,6 +81,12 @@ function Patients() {
                         <td>{value.email}</td>
                         <td>{value.gender}</td>
                         <td>{value.dob}</td>
+                        <td>
+                          <FaEdit onClick={() => onCLickEdit(index)} />
+                          <MdDelete
+                            onClick={() => onCLickDelete(value, index)}
+                          />
+                        </td>
                       </tr>
                     );
                   })}

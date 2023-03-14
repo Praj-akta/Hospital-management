@@ -31,10 +31,9 @@ function Register() {
 
       const user = { firstname, lastname, address, email, dob};
       try {
-        const userRef = await addDoc(collection(db, "users"), {
+        await addDoc(collection(db, "users"), {
           user: user,
         });
-        console.log("Data added", userRef.id);
         navigate("/login");
       } catch (e) {
         console.error("Error adding document: ", e);

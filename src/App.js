@@ -14,6 +14,7 @@ import BookAppointment from "./User/BookAppointment";
 import ManageDoctor from "./Admin/Doctors/ManageDoctor";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import './App.css';
+import EditPatient from "./Admin/Patients/editPatients";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           {/* user routes */}
           <Route path="/user" element={<User />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/admin/patients/edit" element={<EditPatient />}></Route>
           <Route path="/book-appointment" element={<BookAppointment />}></Route>
         </Routes>
       </div>

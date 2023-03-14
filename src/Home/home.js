@@ -1,5 +1,7 @@
 import React from "react";
 import "./home.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import ABOUTIMG1 from "../images/img01.jpg";
 import ABOUTIMG2 from "../images/department2.jpg";
 
@@ -19,39 +21,11 @@ import DOC6 from "../images/doctor6.jpg";
 
 import ECG from "../images/ecg.png";
 import Header from "../components/Header";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Slider from '../Slider';
 import slides from '../mock.json'
 
 function Home() {
   return (
-    // <div>
-    //   <Header />
-    //   <main>
-    //     <div classNameName="container">
-    //       <h1 classNameName="heading">Welcome to the Hospital Management System</h1>
-    //       <div classNameName="card">
-    //         <h2>Patients</h2>
-    //         <p>View and manage patient information</p>
-    //         <button>View Patients</button>
-    //       </div>
-    //       <div classNameName="card">
-    //         <h2>Appointments</h2>
-    //         <p>View and manage appointment schedules</p>
-    //         <button>View Appointments</button>
-    //       </div>
-    //       <div classNameName="card">
-    //         <h2>Doctors</h2>
-    //         <p>View and manage doctor information</p>
-    //         <button>View Doctors</button>
-    //       </div>
-    //     </div>
-    //   </main>
-    //   <Footer />
-    // </div>
-
-    // My work
-
     <div className="main home-container">
       <div className="body">
         <Header />
@@ -142,6 +116,7 @@ function Home() {
         {/* Department */}
         <div className="department">
           <div className="">
+
             <div className="top-namee">
               <h3>Our Departments</h3>
               {/* <p>
@@ -162,62 +137,63 @@ function Home() {
                   <a href="/">Learn More</a>
                   </div>
                 </div>
-              </div>
+            </div>
 
-              <div className="department-box-container">
-                <div className="img-container-department">
-                  <img src={DEPARTMENT2} alt="" />
-                </div>
-                <div className="lefttt">
-                <h3>Skin Care</h3>
-                <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                <a href="/">Learn More</a>
-                </div>
+            <div className="department-box-container">
+              <div className="img-container-department">
+                <img src={DEPARTMENT2} alt="" />
               </div>
+              <div className="lefttt">
+              <h3>Skin Care</h3>
+              <p>Esteem spirit temper too say adieus who direct esteem.</p>
+              <a href="/">Learn More</a>
+              </div>
+            </div>
 
-              <div className="department-box-container">
-                <div className="img-container-department">
-                  <img src={DEPARTMENT5} alt="" />
-                </div>
-                <div className="lefttt">
-                <h3>Pathology</h3>
-                <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                <a href="/">Learn More</a>
-                </div>
+            <div className="department-box-container">
+              <div className="img-container-department">
+                <img src={DEPARTMENT5} alt="" />
               </div>
+              <div className="lefttt">
+              <h3>Pathology</h3>
+              <p>Esteem spirit temper too say adieus who direct esteem.</p>
+              <a href="/">Learn More</a>
+              </div>
+            </div>
 
-              <div className="department-box-container">
-                <div className="img-container-department">
-                  <img src={DEPARTMENT4} alt="" />
-                </div>
-                <div className="lefttt">
-                <h3>Medicine</h3>
-                <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                <a href="/">Learn More</a>
-                </div>
+            <div className="department-box-container">
+              <div className="img-container-department">
+                <img src={DEPARTMENT4} alt="" />
               </div>
+              <div className="lefttt">
+              <h3>Medicine</h3>
+              <p>Esteem spirit temper too say adieus who direct esteem.</p>
+              <a href="/">Learn More</a>
+              </div>
+            </div>
 
-              <div className="department-box-container">
-                <div className="img-container-department">
-                  <img src={DEPARTMENT3} alt="" />
-                </div>
-                <div className="lefttt">
-                <h3>Dental</h3>
-                <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                <a href="/">Learn More</a>
-                </div>
+            <div className="department-box-container">
+              <div className="img-container-department">
+                <img src={DEPARTMENT3} alt="" />
               </div>
+              <div className="lefttt">
+              <h3>Dental</h3>
+              <p>Esteem spirit temper too say adieus who direct esteem.</p>
+              <a href="/">Learn More</a>
+              </div>
+            </div>
 
-              <div className="department-box-container">
-                <div className="img-container-department">
-                  <img src={DEPARTMENT6} alt="" />
-                </div>
-                <div className="lefttt">
-                <h3>Diagnostic Test</h3>
-                <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                <a href="/">Learn More</a>
-                </div>
+            <div className="department-box-container">
+              <div className="img-container-department">
+                <img src={DEPARTMENT6} alt="" />
               </div>
+              <div className="lefttt">
+              <h3>Diagnostic Test</h3>
+              <p>Esteem spirit temper too say adieus who direct esteem.</p>
+              <a href="/">Learn More</a>
+              </div>
+            </div>
+            
             </div>
           </div>
         </div>

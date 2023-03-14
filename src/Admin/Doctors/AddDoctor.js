@@ -26,10 +26,9 @@ function AddDoctor() {
       speciality
     }
     try{
-      const docRef = await addDoc(collection(db, "doctors"),{
+      await addDoc(collection(db, "doctors"),{
         doctor:doctor,
       });
-      console.log("Document written with ID:",docRef.id);
       navigate("/admin/doctors")  
     }
     catch(e){
