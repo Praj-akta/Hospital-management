@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../images/logo.png";
+import logo from "../../images/logo.png";
 import { RxCross2 } from "react-icons/rx";
 import { useSelector } from "react-redux";
 import { GiHamburgerMenu } from "react-icons/gi";
-import "../Admin/index.scss";
+import "./index.scss";
 
-function Sidebar() {
+function Sidebar({ title }) {
   const [toggleMenu, setToggleMenu] = useState(false);
-  const userMenuItems = useSelector(state => state.userMenuItems)
-
+  const menuItems = useSelector((state) =>
+    title === "Doctor" ? state.doctorMenuItems : state.userMenuItems
+  );
   const _class = toggleMenu
     ? "admin-sidebar admin-mobile-sidebar"
     : "admin-sidebar";
 
   return (
-    <div>
+    <div className="dashboard-sidebar">
       <div className={_class}>
-        <div className="navbar logo admin-navbar">
-          HMS
+        <div className="logo admin-navbar">
           <img src={logo} alt="logo-bg" />
           {toggleMenu && (
             <RxCross2
@@ -31,8 +31,8 @@ function Sidebar() {
           <li>
             <Link to="/user">Dashboard</Link>
           </li>
-          {userMenuItems && userMenuItems.length > 0
-            ? userMenuItems.map(({ name, url }, index) => {
+          {menuItems && menuItems.length > 0
+            ? menuItems.map(({ name, url }, index) => {
                 return (
                   <li key={index}>
                     <Link to={url}>{name}</Link>

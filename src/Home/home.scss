@@ -1,13 +1,53 @@
 .main {
   width: 100%;
   height: 100%;
-}
+  .home-container {
+    .logo {
+      width: 100px;
+      margin-left: 330px;
+      img {
+        width: 100%;
+      }
+    }
+  }
 
-.nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  .sliderHolder {
+    width: 100%;
+    height: 700px;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .sub-holder {
+      position: absolute;
+      top: 170px;
+      left: 350px;
+      text-align: left;
+      color: white;
+      h2 {
+        font-size: 70px;
+        font-weight: 700;
+        color: black;
+      }
+      h5 {
+        font-size: 54px;
+        font-weight: 400;
+        color: black;
+      }
+      a {
+        padding-top: 50px;
+        background-color: #1f91f8;
+        padding: 15px 50px;
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: 600;
+        border-radius: 6px;
+      }
+    }
+  }
 }
 
 .link-holder a {
@@ -32,57 +72,6 @@
   gap: 20px;
   align-items: center;
   margin-right: 150px;
-}
-
-.home-container .logo {
-  width: 100px;
-  margin-left: 330px;
-}
-
-.home-container .logo img {
-  width: 100%;
-}
-
-.sliderHolder {
-  width: 100%;
-  height: 700px;
-  position: relative;
-}
-
-.sliderHolder img {
-  width: 100%;
-  height: 100%;
-}
-
-.sub-holder {
-  position: absolute;
-  top: 170px;
-  left: 350px;
-  text-align: left;
-  color: white;
-}
-
-.sub-holder h2 {
-  font-size: 70px;
-  font-weight: 700;
-  color: black;
-}
-
-.sub-holder h5 {
-  font-size: 54px;
-  font-weight: 400;
-  color: black;
-}
-
-.sub-holder a {
-  padding-top: 50px;
-  background-color: #1f91f8;
-  padding: 15px 50px;
-  color: white;
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: 600;
-  border-radius: 6px;
 }
 
 .top-btn {
@@ -212,7 +201,6 @@
   object-fit: cover;
 }
 
-
 .department-card {
   display: flex;
   flex-direction: row;
@@ -328,10 +316,6 @@
   display: flex;
   align-items: center;
   gap: 120px;
-}
-
-.jg-holder {
-  width: 145px;
 }
 .jg-holder p:nth-child(1) {
   font-size: 28px;
@@ -560,4 +544,3 @@
     flex-direction: column;
   }
 }
-

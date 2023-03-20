@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { auth } from "../firebase";
-import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../../firebase";
+import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import "./index.scss";
 
 function LoginForm({ title, role }) {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const existingRole = localStorage.getItem("role");
 
   const [err, setErr] = useState(null);
@@ -32,7 +31,6 @@ function LoginForm({ title, role }) {
         localStorage.setItem("email", email);
         localStorage.setItem("token", accessToken);
 
-        dispatch({ type: "SET_USER_DETAILS", data: { ...data.user, role } });
         if (role === "admin") {
           navigate("/admin/dashboard");
         } else if (role === "user") {
@@ -82,30 +80,18 @@ function LoginForm({ title, role }) {
               onChange={(e) => setPassword(e.target.value)}
             />
             <br></br>
-
-            <button type="submit" className="login-btn">
-              Login
-            </button>
-          </form>
-          <div className="login-links">
-            {(role === "admin" || role === "doctor") && (
-              <Link to="/login">User Login </Link>
+            {role === "user" && (
+              <div>
+                Dont have an Account? &nbsp;
+                <a href="/register">Register Here</a>{" "}
+              </div>
             )}
-            {(role === "user" || role === "doctor") && (
-              <Link to="/admin-login">Admin Login</Link>
-            )}
-            {(role === "admin" || role === "user") && (
-              <Link to="/doctor-login">Doctor's Login</Link>
-            )}
-          </div>
-          {role === "user" && (
-            <div>
-              {" "}
-              Dont have an Account? &nbsp;<a href="/register">
-                Register Here
-              </a>{" "}
+            <div className="d-flex justify-content-center">
+              <button type="submit" className="login-btn">
+                Login
+              </button>
             </div>
-          )}
+          </form>
         </div>
       </div>
     </div>

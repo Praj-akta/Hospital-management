@@ -16,8 +16,7 @@ function AdminSidebar() {
   return (
     <div>
       <div className={_class}>
-        <div className="navbar logo admin-navbar">
-          HMS
+        <div className="logo admin-navbar">
           <img src={logo} alt="logo-bg" />
           {toggleMenu && (
             <RxCross2
@@ -50,9 +49,6 @@ function AdminSidebar() {
           </li>
           <li>
             <Link to="/admin/dashboard">Appointments</Link>
-          </li>
-          <li>
-            <Link>Reports</Link>
           </li>
         </ul>
       </div>

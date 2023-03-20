@@ -8,6 +8,12 @@ body {
     .appointment-form-holder {
       padding: 20px;
     }
+    .select-dropdown {
+      select {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
     .appointment-form {
       display: flex;
       justify-content: center;
@@ -49,6 +55,9 @@ body {
         &:disabled {
           background-color: #e2e2e2;
         }
+      }
+      .selected-div {
+        background-color: #eee;
       }
     }
     .login-btn {

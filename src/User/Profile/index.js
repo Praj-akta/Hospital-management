@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../../firebase";
-import Sidebar from "../../components/Sidebar";
+import Sidebar from "../../components/Dashboard/Sidebar";
 import { collection, doc, getDocs, updateDoc } from "firebase/firestore";
-import DashboardHeader from "../../components/DashboardHeader";
+import DashboardHeader from "../../components/Dashboard/DashboardHeader";
 import "./index.scss";
 
 function Profile() {

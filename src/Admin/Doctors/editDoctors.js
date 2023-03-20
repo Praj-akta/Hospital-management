@@ -86,15 +86,6 @@ function EditDoctors() {
                 <option value="Psychiatry">Psychiatry</option>
                 <option value="Pathology"> Pathology</option>
               </select>
-              {/* <input
-                className="form-control"
-                type="text"
-                value={speciality}
-                required
-                placeholder="Enter Doctor's Speciality"
-                onChange={(e) => setSpeciality(e.target.value)}
-              /> */}
-              <br />
 
               <label>Email:</label>
               <br />

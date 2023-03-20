@@ -1,131 +1,160 @@
 import React, { useEffect, useState } from "react";
-import Sidebar from "../../components/Sidebar";
-import DashboardHeader from "../../components/DashboardHeader";
+import { db } from "../../firebase";
+import { useNavigate } from "react-router-dom";
+import Sidebar from "../../components/Dashboard/Sidebar";
+import { addDoc, collection, getDocs } from "firebase/firestore";
+import DashboardHeader from "../../components/Dashboard/DashboardHeader";
 import "./index.scss";
-import { Dropdown, Option } from "./Dropdown";
 
 function BookAppointment() {
-
-    const [optionValue, setOptionValue] = useState("");
-    const handleSelect = (e) => {
-      console.log(e.target.value);
-      setOptionValue(e.target.value);
-    };
-
-    const [selectedService, setSelectedService] = useState('');
-    const handleServiceChange = (event) => {
-      setSelectedService(event.target.value);
-    };
-
-    const [appointmentTime, setAppointmentTime] = useState('');
-      const handleTimeChange = (event) => {
-        setAppointmentTime(event.target.value);
-    };
-
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      console.log(`Appointment time: ${appointmentTime}`);
-      console.log(`Selected service: ${selectedService}`);
-  };
-
-  const [doctors, setDoctors] = useState("");
+  const navigate = useNavigate();
   const [fees, setFees] = useState("");
   const [date, setDate] = useState("");
+  const [doctorName, setDoctorName] = useState("");
+  const [doctors_list, setDoctorsList] = useState("");
+  const [selectedSpeciality, setSpeciality] = useState("");
+  const [appointmentTime, setAppointmentTime] = useState("");
+  const [selectedDoctors, setSelectedDoctorsList] = useState(null);
+
+  useEffect(() => {
+    getDocs(collection(db, "doctors")).then((querySnapshot) => {
+      const newData = querySnapshot.docs.map((doc) => doc.data().doctor);
+      setDoctorsList(newData);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (doctors_list && doctors_list.length > 0) {
+      const selected_doctors = doctors_list.filter(
+        ({ speciality }) => speciality === selectedSpeciality
+      );
+      setSelectedDoctorsList(selected_doctors);
+    }
+  }, [doctors_list, selectedSpeciality]);
+
+  const onSelectDoctorName = (e) => {
+    setDoctorName(e.target.value);
+    const data =
+      doctors_list && doctors_list.find(({ name }) => name === e.target.value);
+    if (data) {
+      setFees(data.fees);
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      await addDoc(collection(db, "appointments"), {
+        fees, 
+        date,
+        doctorName,
+        appointmentTime,
+        speciality: selectedSpeciality
+      });
+      alert("Appoitnment booked successfully.");
+      navigate("/appointments");
+    } catch (e) {
+      console.error("Error inserting data", e);
+    }
+  };
 
   return (
     <div className="admin-dashboard">
       <Sidebar />
       <div className="admin-header">
-        <DashboardHeader />  
+        <DashboardHeader />
 
-              <div className="content appointment-form">
-                <div className="row appointment-form">
-                  <div className="col-sm-12 col-lg-6 p-0">
-                    <div className="appointment-form-holder">
+        <div className="content appointment-form">
+          <div className="row appointment-form">
+            <div className="col-sm-12 col-lg-10 p-0">
+              <div className="appointment-form-holder">
+                <form name="appointment-form" onSubmit={handleSubmit}>
+                  <h3>Book Appointment</h3>
 
-                      <form name="appointment-form" onSubmit={handleSubmit}>
-                        <h3>Book Appointment</h3>
+                  <label> Doctor Specialization: </label>
+                  <br />
+                  <select
+                    required
+                    value={selectedSpeciality}
+                    className="form-control selected-div"
+                    onChange={(e) => setSpeciality(e.target.value)}
+                  >
+                    <option>Select an option</option>
+                    <option value="Dermatology">Dermatology</option>
+                    <option value="Neurology">Neurology</option>
+                    <option value="Orthopedics">Orthopedics</option>
+                    <option value="Psychiatry">Psychiatry</option>
+                    <option value="Pathology"> Pathology</option>
+                  </select>
+                  <br />
 
-                        <div>
-                          <Dropdown
-                            formLabel="Doctor Specialization:"
-                            className="form-control"
-                            required
-                            placeholder="Click to see options"
-                            buttonText=""
-                            onChange={handleSelect}
-                            action="https://jsonplaceholder.typicode.com/posts"
-                          >
+                  <label>Doctor Name:</label>
+                  <br />
+                  <select
+                    required
+                    value={doctorName}
+                    className="form-control selected-div"
+                    onChange={(e) => onSelectDoctorName(e)}
+                  >
+                    <option>Select an option</option>
+                    {selectedDoctors &&
+                      selectedDoctors.map((value, index) => {
+                        return (
+                          <option value={value.name} key={index}>
+                            {value.name}
+                          </option>
+                        );
+                      })}
+                  </select>
+                  <br />
 
-                            <Option value="Select Services">Click to see options</Option>
-                            <Option value="ENT">ENT</Option>
-                            <Option value="Neurologists">Neurologists</Option>
-                            <Option value="Orthopedics">Orthopedics</Option>s
-                          </Dropdown>
-                          {/* <p>You selected {optionValue} </p> */}
-                        </div>
-                        <br />
+                  <label>Consultancy Fees:</label>
+                  <br />
+                  <input
+                    className="form-control selected-div"
+                    type="text"
+                    value={fees}
+                    required
+                    disabled
+                    placeholder="Consultancy fees"
+                    onChange={(e) => setFees(e.target.value)}
+                  />
+                  <br />
 
-                        <label>Doctor:</label>
-                        <br />
-                        <input
-                          className="form-control"
-                          type="text"
-                          value={doctors}
-                          required
-                          placeholder=""
-                          onChange={(e) => setDoctors(e.target.value)}
-                        />
-                        <br />
+                  <label>Date:</label>
+                  <br />
+                  <input
+                    className="form-control"
+                    type="date"
+                    value={date}
+                    required
+                    onChange={(e) => setDate(e.target.value)}
+                    min={new Date().toISOString().split('T')[0]}
+                  />
+                  <br />
 
-                        <label>Consultancy Fees:</label>
-                        <br />
-                        <input
-                          className="form-control"
-                          type="text"
-                          value={fees}
-                          required
-                          placeholder=""
-                          onChange={(e) => setFees(e.target.value)}
-                        />
-                        <br />
+                  <label>Appointment Time:</label>
+                  <br />
+                  <input
+                    className="form-control"
+                    type="time"
+                    required
+                    value={appointmentTime}
+                    onChange={(e) => setAppointmentTime(e.target.value)}
+                  />
+                  <br />
 
-                        <label>Date:</label>
-                        <br />
-                        <input
-                          className="form-control"
-                          type="date"
-                          value={date}
-                          required
-                          placeholder=""
-                          onChange={(e) => setDate(e.target.value)}
-                        />
-                        <br />
-
-                        <label>Appointment Time:</label>
-                        <br />
-                        <input 
-                          className="form-control"
-                          type="time" 
-                          required
-                          value={appointmentTime} 
-                          onChange={handleTimeChange} 
-                        />
-                        <br />
-
-                        <br />
-                        <button type="submit" className="login-btn">
-                          Schedule Appointment
-                        </button>
-
-                      </form>
-                    </div>
-                  </div>
-                </div>
+                  <br />
+                  <button type="submit" className="login-btn">
+                    Schedule Appointment
+                  </button>
+                </form>
               </div>
             </div>
           </div>
-
+        </div>
+      </div>
+    </div>
   );
 }
 

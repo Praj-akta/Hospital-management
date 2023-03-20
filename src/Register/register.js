@@ -22,7 +22,7 @@ function Register() {
     if (password === confirmPassword) {
       //firebase create with email password
       createUserWithEmailAndPassword(auth, email, password)
-        .then(() => navigate("/login"))
+        .then(() => navigate("/patient-login"))
         .catch((err) => {
           if (err.code === "auth/email-already-in-use") {
             setErr("Email address already exists.");
@@ -34,7 +34,7 @@ function Register() {
         await addDoc(collection(db, "users"), {
           user: user,
         });
-        navigate("/login");
+        navigate("/patient-login");
       } catch (e) {
         console.error("Error adding document: ", e);
       }
@@ -42,7 +42,7 @@ function Register() {
   }
 
   return (
-    <div className="body-main">
+    <div className="">
       <Header />
       <div className="row login-form register-form">
         <h3>Register</h3>
@@ -127,16 +127,14 @@ function Register() {
               />
 
               <br />
+              <div>
+                Already have an Account? &nbsp;<a href="/login">Login Here</a>
+              </div>
+              <br />
               <button type="submit" className="login-btn">
                 Register
               </button>
             </form>
-            <div>
-              {" "}
-              Already have an Account? &nbsp;<a href="/login">
-                Login Here
-              </a>{" "}
-            </div>
           </div>
         </div>
       </div>

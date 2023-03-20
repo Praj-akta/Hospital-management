@@ -1,7 +1,7 @@
 import React from "react";
 import { Dropdown } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import "../Admin/index.scss";
+import "./index.scss";
 
 function DashboardHeader() {
   const title = localStorage.getItem("role");
@@ -15,9 +15,9 @@ function DashboardHeader() {
   };
 
   return (
-    <div className="navbar admin-navbar">
+    <div className="admin-navbar dashboard-header">
       <div>
-        <Link to="/">Hospital Management System</Link>
+        <Link to="/">Medical Management System</Link>
       </div>
       <div>
         <Dropdown>

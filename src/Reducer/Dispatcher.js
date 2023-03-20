@@ -1,24 +1,17 @@
-import { DOCTORS_LIST, PATIENTS_LIST, SET_USER_DETAILS } from "./Action";
+import { SET_DOCTORS_LIST, SET_PATIENTS_LIST } from "./Action";
 
 const getDoctorsList = (data) => {
   return {
-    type: DOCTORS_LIST,
+    type: SET_DOCTORS_LIST,
     data,
   };
 };
 
 const getPatientsList = (data) => {
   return {
-    type: PATIENTS_LIST,
+    type: SET_PATIENTS_LIST,
     data,
   };
 };
 
-const setUserDetails = (data) => {
-  return {
-    type: SET_USER_DETAILS,
-    data,
-  };
-};
-
-export { getDoctorsList, getPatientsList, setUserDetails };
+export { getDoctorsList, getPatientsList };

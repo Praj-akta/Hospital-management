@@ -14,9 +14,9 @@ function AdminHeader() {
   }
 
   return (
-    <div className="navbar admin-navbar">
+    <div className="admin-navbar">
       <div>
-        <Link to="/">Hospital Management System</Link>
+        <Link to="/">Medical Management System</Link>
       </div>
       <div>
         <Dropdown>

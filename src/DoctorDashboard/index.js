@@ -3,16 +3,16 @@ import Dashboard from "../components/Dashboard";
 import Sidebar from "../components/Dashboard/Sidebar";
 import DashboardHeader from "../components/Dashboard/DashboardHeader";
 
-function User() {
+function DoctorDashboard() {
   return (
     <div className="admin-dashboard">
-      <Sidebar />
+      <Sidebar title="Doctor" />
       <div className="admin-header">
         <DashboardHeader />
-        <Dashboard title="User" />
+        <Dashboard title="Doctor" />
       </div>
     </div>
   );
 }
 
-export default User;
+export default DoctorDashboard;

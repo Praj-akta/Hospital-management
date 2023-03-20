@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { HiUsers } from "react-icons/hi";
 import { TbReportSearch } from "react-icons/tb";
@@ -6,10 +7,13 @@ import { BsCalendarCheck } from "react-icons/bs";
 import { RiStethoscopeFill } from "react-icons/ri";
 
 function AdminDashboard() {
+  const doctors_list = useSelector((state) => state.doctors);
+  const patients_list = useSelector((state) => state.patients);
+
   return (
     <div className="content">
       <div className="heading">
-        <h3>Dashboard</h3>
+        <h3> Admin | Dashboard</h3>
         <p className="breadcrumbs">
           Admin {">"} <span className="curr-page">Dashboard</span>{" "}
         </p>
@@ -19,7 +23,7 @@ function AdminDashboard() {
           <div className="div1">
             <RiStethoscopeFill />
             <Link to="/admin/doctors">
-              <h3> 0 </h3>
+              <h3>{doctors_list.length} </h3>
               <h5>Doctors </h5>
             </Link>
           </div>
@@ -28,7 +32,7 @@ function AdminDashboard() {
           <div className="div2">
             <HiUsers />
             <Link to="/admin/patients">
-              <h3> 0 </h3>
+              <h3>{patients_list.length}</h3>
               <h5>Patients</h5>
             </Link>
           </div>
