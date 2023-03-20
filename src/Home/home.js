@@ -43,7 +43,7 @@ function Home() {
         {/* slider section */}
         <div className="ogbg">
           <div className="container">
-            <div className="img-holderr">
+            <div className="img-holder">
               <img src={ECG} alt="ecg" />
             </div>
             <h2>Hospitality</h2>
@@ -54,7 +54,7 @@ function Home() {
             <a href="/">Apply for A Bed</a>
           </div>
           <div className="container">
-            <div className="img-holderr">
+            <div className="img-holder">
               <img src={ECG} alt="" />
             </div>
             <h2>Emergency Care</h2>
@@ -65,7 +65,7 @@ function Home() {
             <a href="/">+10 238 4473 477</a>
           </div>
           <div className="container">
-            <div className="img-holderr">
+            <div className="img-holder">
               <img src={ECG} alt="" />
             </div>
             <h2>Chamber Service</h2>
@@ -78,7 +78,7 @@ function Home() {
         </div>
 
         {/* about us */}
-        <div className="about-us">
+        <div className="about-us" id="about">
           <div className="left-container">
             <img src={ABOUTIMG1} alt="" />
             <img src={ABOUTIMG2} alt="" />
@@ -99,7 +99,7 @@ function Home() {
         </div>
 
         {/* Department */}
-        <div className="department">
+        <div className="department" id="departments">
           <div>
             <div className="top-namee">
               <h3>Our Departments</h3>
@@ -180,7 +180,7 @@ function Home() {
         </div>
 
         {/* doctors */}
-        <div>
+        <div id="doctors">
           <div className="header-doc-container">
             <h3>Expert Doctors</h3>
           </div>
