@@ -18,7 +18,7 @@ function LoginForm({ title, role }) {
     } else if (existingRole === "user") {
       navigate("/user");
     } else if (existingRole === "doctor") {
-      navigate("/doctor/dashboard");
+      navigate("/doctor-dashboard");
     }
   }, [existingRole, navigate]);
 
@@ -36,7 +36,7 @@ function LoginForm({ title, role }) {
         } else if (role === "user") {
           navigate("/user");
         } else if (role === "doctor") {
-          navigate("/doctor/dashboard");
+          navigate("/doctor-dashboard");
         } else {
           navigate("/");
         }

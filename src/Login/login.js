@@ -19,7 +19,7 @@ function Login() {
           </div>
           <div className="login-text patient-bg"> Patient Login</div>
         </div>
-        <div className="logins-div" onClick={_ => navigate("/doctor-dashboard")}>
+        <div className="logins-div" onClick={_ => navigate("/doctor-login")}>
           <div>
             <img src={doctorLogo} alt="patients-logo" />
           </div>

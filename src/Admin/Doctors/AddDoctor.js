@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { db } from "../../firebase";
+import { auth, db } from "../../firebase";
 import AdminHeader from "../AdminHeader";
 import AdminSidebar from "../AdminSidebar";
 import { useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore";
 import "../index.scss";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 function AddDoctor() {
   const navigate = useNavigate();
@@ -14,6 +15,8 @@ function AddDoctor() {
   const [docname, setDocname] = useState("");
   const [address, setAddress] = useState("");
   const [speciality, setSpeciality] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmpassword, setConfirmpassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,13 +28,24 @@ function AddDoctor() {
       fees,
       speciality,
     };
-    try {
-      await addDoc(collection(db, "doctors"), {
-        doctor: doctor,
-      });
-      navigate("/admin/doctors");
-    } catch (e) {
-      console.error("Error adding document:", e);
+    if (password === confirmpassword) {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then(() => {
+          alert("Your account has been created");
+          addDoc(collection(db, "doctors"), {
+            doctor: doctor,
+          }).then(() => {
+            alert("Your data has been added");
+            navigate("/admin/doctors");
+          });
+        })
+        .catch((err) => {
+          if (err.code === "auth/email-already-in-use") {
+            alert("Email address already exists.");
+          }
+        });
+    } else {
+      alert("Password does not match");
     }
   };
 
@@ -122,6 +136,26 @@ function AddDoctor() {
                 required
                 placeholder="Enter Consultancy Fees:"
                 onChange={(e) => setFees(e.target.value)}
+              />
+              <br />
+              <label>Password:</label>
+              <input
+                className="form-control"
+                type="text"
+                value={password}
+                required
+                placeholder="Enter Your Password:"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <br />
+              <label>Confirm Password::</label>
+              <input
+                className="form-control"
+                type="text"
+                value={confirmpassword}
+                required
+                placeholder="Confirm Password:"
+                onChange={(e) => setConfirmpassword(e.target.value)}
               />
               <br />
               <button type="submit">Submit</button>

@@ -94,6 +94,7 @@ function EditDoctors() {
                 type="email"
                 value={email}
                 required
+                disabled
                 placeholder="Enter Doctor's Email:"
                 onChange={(e) => setEmail(e.target.value)}
               />
