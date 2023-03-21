@@ -27,14 +27,20 @@ function LoginForm({ title, role }) {
     signInWithEmailAndPassword(auth, email, password)
       .then((data) => {
         const { accessToken } = data.user;
-        localStorage.setItem("role", role);
-        localStorage.setItem("email", email);
-        localStorage.setItem("token", accessToken);
-
+        if(role !== "user") {
+          localStorage.setItem("role", role);
+          localStorage.setItem("email", email);
+          localStorage.setItem("token", accessToken);
+        }
         if (role === "admin") {
           navigate("/admin/dashboard");
-        } else if (role === "user") {
+        } else if (role === "user" && data.user.emailVerified) {
+          localStorage.setItem("role", role);
+          localStorage.setItem("email", email);
+          localStorage.setItem("token", accessToken);
           navigate("/user");
+        } else if (role === "user" && !data.emailVerified) {
+          alert("Email is not verified. Please Check your email and verify it.")
         } else if (role === "doctor") {
           navigate("/doctor/dashboard");
         } else {
