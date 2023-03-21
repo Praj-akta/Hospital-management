@@ -74,6 +74,17 @@
   }
 }
 
+@media only screen and (max-width: 992px) {
+  .logins {
+    flex-wrap: wrap !important;
+    width: 90%;
+    margin: 0 auto;
+    .logins-div {
+      margin: 20px;
+    }
+  }
+}
+
 @media only screen and (max-width: 1024px) {
   .login-form {
     border: none;
