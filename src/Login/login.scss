@@ -13,13 +13,6 @@
         height: 300px;
         object-fit: cover;
       }
-      .opacity-bg {
-        width: 300px;
-        height: 300px;
-        opacity: 0.2;
-        position: absolute;
-        top: 0;
-      }
       .login-text {
         color: #fff;
         padding: 10px;
@@ -71,6 +64,17 @@
   }
   .login-form-holder h3 {
     padding: 28px 0;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .logins {
+    flex-wrap: wrap !important;
+    width: 90%;
+    margin: 0 auto;
+    .logins-div {
+      margin: 20px;
+    }
   }
 }
 

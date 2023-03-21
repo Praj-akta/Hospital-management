@@ -18,12 +18,16 @@ function Admin() {
       navigate("/admin-login");
     } else {
       getDocs(collection(db, "doctors")).then((querySnapshot) => {
-        const newData = querySnapshot.docs.map((doc) => doc.data().doctor);
-        dispatch({ type: "SET_DOCTORS_LIST", data: newData });
+        const data = querySnapshot.docs.map((doc) => doc.data().doctor);
+        dispatch({ type: "SET_DOCTORS_LIST", data: data });
       });
       getDocs(collection(db, "users")).then((querySnapshot) => {
         const newData = querySnapshot.docs.map((doc) => doc.data().user);
         dispatch({ type: "SET_PATIENTS_LIST", data: newData });
+      });
+      getDocs(collection(db, "appointments")).then((querySnapshot) => {
+        const _data = querySnapshot.docs.map((doc) => doc.data());
+        dispatch({ type: "SET_APPOINTMENTS_LIST", data: _data });
       });
     }
   }, [dispatch, navigate]);

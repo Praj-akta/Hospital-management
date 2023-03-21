@@ -1,4 +1,4 @@
-import { SET_DOCTORS_LIST, SET_PATIENTS_LIST } from "./Action";
+import { SET_DOCTORS_LIST, SET_PATIENTS_LIST, SET_APPOINTMENTS_LIST } from "./Action";
 
 const getDoctorsList = (data) => {
   return {
@@ -14,4 +14,12 @@ const getPatientsList = (data) => {
   };
 };
 
-export { getDoctorsList, getPatientsList };
+const getAppointmentsList = (data) => {
+  return {
+    type: SET_APPOINTMENTS_LIST,
+    data,
+  };
+};
+
+
+export { getDoctorsList, getPatientsList, getAppointmentsList };

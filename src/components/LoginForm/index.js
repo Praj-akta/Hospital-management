@@ -18,7 +18,7 @@ function LoginForm({ title, role }) {
     } else if (existingRole === "user") {
       navigate("/user");
     } else if (existingRole === "doctor") {
-      navigate("/doctor/dashboard");
+      navigate("/doctor-dashboard");
     }
   }, [existingRole, navigate]);
 
@@ -42,7 +42,7 @@ function LoginForm({ title, role }) {
         } else if (role === "user" && !data.emailVerified) {
           alert("Email is not verified. Please Check your email and verify it.")
         } else if (role === "doctor") {
-          navigate("/doctor/dashboard");
+          navigate("/doctor-dashboard");
         } else {
           navigate("/");
         }

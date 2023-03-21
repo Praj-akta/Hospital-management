@@ -3,21 +3,21 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Slider from "../Slider";
 import slides from "../mock.json";
 import ECG from "../images/ecg.png";
-import DOC1 from "../images/doctor1.jpg";
-import DOC2 from "../images/doctor2.jpg";
-import DOC3 from "../images/doctor3.jpg";
-import DOC4 from "../images/doctor4.jpg";
-import DOC5 from "../images/doctor5.jpg";
-import DOC6 from "../images/doctor6.jpg";
+import DOC1 from "../images/Doctor3.jpeg";
+import DOC2 from "../images/Doctor2.jpeg";
+import DOC3 from "../images/Doctor1.jpeg";
+import DOC4 from "../images/Doctor4.jpeg";
+import DOC5 from "../images/Doctor5.jpeg";
+import DOC6 from "../images/Doctor6.jpeg";
 import Header from "../components/Header";
-import ABOUTIMG1 from "../images/img01.jpg";
-import ABOUTIMG2 from "../images/department2.jpg";
-import DEPARTMENT1 from "../images/department1.jpg";
-import DEPARTMENT2 from "../images/department2.jpg";
-import DEPARTMENT3 from "../images/department3.jpg";
-import DEPARTMENT4 from "../images/department4.jpg";
-import DEPARTMENT5 from "../images/department5.jpg";
-import DEPARTMENT6 from "../images/department6.jpg";
+import ABOUTIMG1 from "../images/About1.jpeg";
+import ABOUTIMG2 from "../images/About2.jpeg";
+import DEPARTMENT1 from "../images/Eye.jpeg";
+import DEPARTMENT2 from "../images/Skin.jpeg";
+import DEPARTMENT3 from "../images/Pathology.jpeg";
+import DEPARTMENT4 from "../images/Medical.jpeg";
+import DEPARTMENT5 from "../images/Dental.jpeg";
+import DEPARTMENT6 from "../images/Diagnostic.jpeg";
 import "./home.scss";
 
 function Home() {
@@ -134,7 +134,7 @@ function Home() {
 
               <div className="department-box-container">
                 <div className="img-container-department">
-                  <img src={DEPARTMENT5} alt="" />
+                  <img src={DEPARTMENT3} alt="" />
                 </div>
                 <div className="lefttt">
                   <h3>Pathology</h3>
@@ -156,7 +156,7 @@ function Home() {
 
               <div className="department-box-container">
                 <div className="img-container-department">
-                  <img src={DEPARTMENT3} alt="" />
+                  <img src={DEPARTMENT5} alt="" />
                 </div>
                 <div className="lefttt">
                   <h3>Dental</h3>

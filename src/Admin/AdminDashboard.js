@@ -9,6 +9,7 @@ import { RiStethoscopeFill } from "react-icons/ri";
 function AdminDashboard() {
   const doctors_list = useSelector((state) => state.doctors);
   const patients_list = useSelector((state) => state.patients);
+  const appointments_list = useSelector((state) => state.appointments);
 
   return (
     <div className="content">
@@ -41,7 +42,7 @@ function AdminDashboard() {
           <div className="div3">
             <BsCalendarCheck />
             <Link>
-              <h3> 0 </h3>
+              <h3>{appointments_list.length}</h3>
               <h5>Appointments</h5>
             </Link>
           </div>

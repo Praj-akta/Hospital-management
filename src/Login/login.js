@@ -4,7 +4,6 @@ import Header from "../components/Header";
 import adminLogo from "../images/admin.png";
 import patientLogo from "../images/patient.png";
 import doctorLogo from "../images/department1.jpg";
-// import LoginForm from "../components/LoginForm";
 import "./login.scss";
 
 function Login() {
@@ -18,25 +17,21 @@ function Login() {
           <div>
             <img src={patientLogo} alt="patients-logo" />
           </div>
-          <div className="opacity-bg patient-bg" />
           <div className="login-text patient-bg"> Patient Login</div>
         </div>
         <div className="logins-div" onClick={_ => navigate("/doctor-login")}>
           <div>
             <img src={doctorLogo} alt="patients-logo" />
           </div>
-          <div className="opacity-bg doctor-bg" />
           <div className="login-text doctor-bg">Doctor Login</div>
         </div>
         <div className="logins-div" onClick={_ => navigate("/admin-login")}>
           <div>
             <img src={adminLogo} alt="patients-logo" />
           </div>
-          <div className="opacity-bg admin-bg" />
           <div className="login-text admin-bg">Admin Login</div>
         </div>
       </div>
-      {/* <LoginForm role="user" title="User Login" /> */}
     </div>
   );
 }

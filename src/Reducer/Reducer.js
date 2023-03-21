@@ -1,4 +1,4 @@
-import { SET_DOCTORS_LIST, SET_PATIENTS_LIST } from "./Action";
+import { SET_APPOINTMENTS_LIST, SET_DOCTORS_LIST, SET_PATIENTS_LIST } from "./Action";
 import { CgProfile } from "react-icons/cg";
 import { GiNotebook } from "react-icons/gi";
 import { TbReportSearch } from "react-icons/tb";
@@ -10,6 +10,7 @@ import { BiCommentDetail } from "react-icons/bi";
 export const initialState = {
   doctors: [],
   patients: [],
+  appointments: [],
   userMenuItems: [
     { name: "Profile", url: "/profile", iconName: <CgProfile /> },
     { name: "Appointments", url: "/appointments", iconName: <GiNotebook /> },
@@ -22,19 +23,14 @@ export const initialState = {
   ],
   doctorMenuItems: [
     {
-      name: "Appointment History",
-      url: "/doctor-dashboard/appointment-history",
+      name: "Appointments",
+      url: "/doctor-dashboard/appointments",
       iconName: <MdWorkOutline />,
     },
     {
       name: "Patients Details",
       url: "/doctor-dashboard/patients/details",
       iconName: <BiCommentDetail />,
-    },
-    {
-      name: "Manage Patients",
-      url: "/doctor-dashboard/patients/details",
-      iconName: <GiNotebook />,
     },
     { name: "Search", url: "/user", iconName: <MdManageSearch /> },
   ],
@@ -51,6 +47,11 @@ const AdminReducer = (state = initialState, action) => {
       return {
         ...state,
         patients: action.data,
+      };
+    case SET_APPOINTMENTS_LIST:
+      return {
+        ...state,
+        appointments: action.data,
       };
     default:
       return state;

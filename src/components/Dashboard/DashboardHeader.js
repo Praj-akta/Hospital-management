@@ -1,7 +1,6 @@
 import React from "react";
 import { Dropdown } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import "./index.scss";
 
 function DashboardHeader() {
   const title = localStorage.getItem("role");

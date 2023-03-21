@@ -17,6 +17,7 @@ import BookAppointment from "./User/BookAppointment";
 import EditDoctors from "./Admin/Doctors/editDoctors";
 import EditPatient from "./Admin/Patients/editPatients";
 import ManageDoctor from "./Admin/Doctors/ManageDoctor";
+import DoctorsAppointments from "./DoctorDashboard/Appointments";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import './App.css';
 
@@ -46,6 +47,7 @@ function App() {
           <Route path="/book-appointment" element={<BookAppointment />}></Route>
           {/* doctor dashboard routes */}
           <Route path="/doctor-dashboard" element={<DoctorDashboard />}></Route>
+          <Route path="/doctor-dashboard/appointments" element={<DoctorsAppointments />}></Route>
         </Routes> 
       </div>
     </Router>
