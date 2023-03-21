@@ -32,7 +32,7 @@ export const initialState = {
       url: "/doctor-dashboard/patients/details",
       iconName: <BiCommentDetail />,
     },
-    { name: "Search", url: "/user", iconName: <MdManageSearch /> },
+    { name: "Search", url: "/doctor-dashboard", iconName: <MdManageSearch /> },
   ],
 };
 
