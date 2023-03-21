@@ -14,6 +14,7 @@ import PatientLogin from "./Login/PatientLogin";
 import Appointments from "./User/Appointments";
 import AddDoctor from "./Admin/Doctors/AddDoctor";
 import BookAppointment from "./User/BookAppointment";
+import AdminAppointments from "./Admin/Appointments";
 import EditDoctors from "./Admin/Doctors/editDoctors";
 import EditPatient from "./Admin/Patients/editPatients";
 import ManageDoctor from "./Admin/Doctors/ManageDoctor";
@@ -40,6 +41,8 @@ function App() {
           <Route exact path="/admin/doctors" element={<ManageDoctor />}></Route>
           <Route exact path="/admin/add-doctor" element={<AddDoctor />}></Route>
           <Route exact path="/admin/doctors/edit" element={<EditDoctors />}></Route>
+          <Route exact path="/admin/appointments" element={<AdminAppointments />}></Route>
+          
           {/* user routes */}
           <Route path="/user" element={<User />}></Route>
           <Route path="/profile" element={<Profile />}></Route>

@@ -141,7 +141,7 @@ function AddDoctor() {
               <label>Password:</label>
               <input
                 className="form-control"
-                type="text"
+                type="password"
                 value={password}
                 required
                 placeholder="Enter Your Password:"
@@ -151,7 +151,7 @@ function AddDoctor() {
               <label>Confirm Password::</label>
               <input
                 className="form-control"
-                type="text"
+                type="password"
                 value={confirmpassword}
                 required
                 placeholder="Confirm Password:"
