@@ -3,7 +3,7 @@ import { auth, db } from "../firebase";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
 import { collection, addDoc } from "firebase/firestore";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
 import "../Login/login.scss";
 
 function Register() {
@@ -22,7 +22,12 @@ function Register() {
     if (password === confirmPassword) {
       //firebase create with email password
       createUserWithEmailAndPassword(auth, email, password)
-        .then(() => navigate("/patient-login"))
+        .then((userCredential) => {
+          //send verification email
+          sendEmailVerification(userCredential.user);
+          alert("Verification Email has been sent, Kindly Check your email.");
+          navigate("/patient-login");
+        })
         .catch((err) => {
           if (err.code === "auth/email-already-in-use") {
             setErr("Email address already exists.");

@@ -25,7 +25,7 @@ function Slider({ slides }) {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>{slide.title}</h3>
+            {/* <h3>{slide.title}</h3> */}
             <p>{slide.subTitle}</p>
           </Carousel.Caption>
         </Carousel.Item>

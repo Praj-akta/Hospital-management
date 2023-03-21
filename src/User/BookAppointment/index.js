@@ -10,7 +10,9 @@ function BookAppointment() {
   const navigate = useNavigate();
   const [fees, setFees] = useState("");
   const [date, setDate] = useState("");
+  const [doctorEmail, setDocEmail] = useState("");
   const [doctorName, setDoctorName] = useState("");
+  const [userDetails, setUserDetails] = useState("");
   const [doctors_list, setDoctorsList] = useState("");
   const [selectedSpeciality, setSpeciality] = useState("");
   const [appointmentTime, setAppointmentTime] = useState("");
@@ -20,6 +22,11 @@ function BookAppointment() {
     getDocs(collection(db, "doctors")).then((querySnapshot) => {
       const newData = querySnapshot.docs.map((doc) => doc.data().doctor);
       setDoctorsList(newData);
+    });
+    getDocs(collection(db, "users")).then((querySnapshot) => {
+      const data = querySnapshot.docs.map((doc) => doc.data().user);
+      const _data = data.find(({email}) => email === localStorage.getItem("email"));
+      setUserDetails(_data);
     });
   }, []);
 
@@ -38,6 +45,7 @@ function BookAppointment() {
       doctors_list && doctors_list.find(({ name }) => name === e.target.value);
     if (data) {
       setFees(data.fees);
+      setDocEmail(data.email);
     }
   };
 
@@ -49,7 +57,9 @@ function BookAppointment() {
         date,
         doctorName,
         appointmentTime,
-        speciality: selectedSpeciality
+        doctorEmail: doctorEmail,
+        speciality: selectedSpeciality,
+        userDetails: userDetails
       });
       alert("Appoitnment booked successfully.");
       navigate("/appointments");
