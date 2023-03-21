@@ -23,7 +23,7 @@ export const initialState = {
   ],
   doctorMenuItems: [
     {
-      name: "Appointment",
+      name: "Appointments",
       url: "/doctor-dashboard/appointments",
       iconName: <MdWorkOutline />,
     },
@@ -31,11 +31,6 @@ export const initialState = {
       name: "Patients Details",
       url: "/doctor-dashboard/patients/details",
       iconName: <BiCommentDetail />,
-    },
-    {
-      name: "Manage Patients",
-      url: "/doctor-dashboard/patients/details",
-      iconName: <GiNotebook />,
     },
     { name: "Search", url: "/user", iconName: <MdManageSearch /> },
   ],
