@@ -23,8 +23,8 @@ export const initialState = {
   ],
   doctorMenuItems: [
     {
-      name: "Appointment History",
-      url: "/doctor-dashboard/appointment-history",
+      name: "Appointment",
+      url: "/doctor-dashboard/appointments",
       iconName: <MdWorkOutline />,
     },
     {

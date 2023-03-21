@@ -4,7 +4,6 @@ import logo from "../../images/logo.png";
 import { RxCross2 } from "react-icons/rx";
 import { useSelector } from "react-redux";
 import { GiHamburgerMenu } from "react-icons/gi";
-import "./index.scss";
 
 function Sidebar({ title }) {
   const [toggleMenu, setToggleMenu] = useState(false);
