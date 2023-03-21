@@ -49,7 +49,7 @@ function Profile() {
   }
 
   return (
-    <div className="admin-dashboard">
+    <div className="admin-dashboard user-dashboard">
       <Sidebar />
       <div className="admin-header">
         <DashboardHeader />

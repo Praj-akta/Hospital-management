@@ -41,7 +41,7 @@ function AdminDashboard() {
         <div className="col-12 col-sm-12 col-md-6 col-lg-4">
           <div className="div3">
             <BsCalendarCheck />
-            <Link>
+            <Link to="/admin/appointments">
               <h3>{appointments_list.length}</h3>
               <h5>Appointments</h5>
             </Link>

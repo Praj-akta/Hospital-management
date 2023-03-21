@@ -28,7 +28,7 @@ function Sidebar({ title }) {
         </div>
         <ul>
           <li>
-            <Link to="/user">Dashboard</Link>
+            <Link to={ title === "Doctor" ? "/doctor-dashboard" : "/user"}>Dashboard</Link>
           </li>
           {menuItems && menuItems.length > 0
             ? menuItems.map(({ name, url }, index) => {

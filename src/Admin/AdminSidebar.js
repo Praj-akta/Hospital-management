@@ -48,7 +48,7 @@ function AdminSidebar() {
             <Link to="/admin/patients">Patients</Link>
           </li>
           <li>
-            <Link to="/admin/dashboard">Appointments</Link>
+            <Link to="/admin/appointments">Appointments</Link>
           </li>
         </ul>
       </div>
