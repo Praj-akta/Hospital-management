@@ -19,7 +19,8 @@ export const initialState = {
       url: "/book-appointment",
       iconName: <BsCalendar2WeekFill />,
     },
-    { name: "Lab Reports", url: "/user", iconName: <TbReportSearch /> },
+    { name: "Lab Tests", url: "/lab-tests", iconName: <TbReportSearch /> },
+    // { name: "Lab Reports", url: "/user", iconName: <TbReportSearch /> },
   ],
   doctorMenuItems: [
     {
@@ -29,7 +30,7 @@ export const initialState = {
     },
     {
       name: "Patients Details",
-      url: "/doctor-dashboard/patients/details",
+      url: "/doctor-dashboard/patients-details",
       iconName: <BiCommentDetail />,
     },
     { name: "Search", url: "/doctor-dashboard", iconName: <MdManageSearch /> },

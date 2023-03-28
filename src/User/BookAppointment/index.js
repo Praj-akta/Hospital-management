@@ -25,7 +25,9 @@ function BookAppointment() {
     });
     getDocs(collection(db, "users")).then((querySnapshot) => {
       const data = querySnapshot.docs.map((doc) => doc.data().user);
-      const _data = data.find(({email}) => email === localStorage.getItem("email"));
+      const _data = data.find(
+        ({ email }) => email === localStorage.getItem("email")
+      );
       setUserDetails(_data);
     });
   }, []);
@@ -51,21 +53,27 @@ function BookAppointment() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    try {
-      await addDoc(collection(db, "appointments"), {
-        fees, 
-        date,
-        doctorName,
-        appointmentTime,
-        doctorEmail: doctorEmail,
-        speciality: selectedSpeciality,
-        userDetails: userDetails
-      });
-      alert("Appoitnment booked successfully.");
-      navigate("/appointments");
-    } catch (e) {
-      console.error("Error inserting data", e);
+    if (!selectedSpeciality && !doctorName && !fees) {
+      alert("All fields are required.");
+    } else {
+      navigate("/book-appointment/payment");
     }
+
+    // try {
+    //   await addDoc(collection(db, "appointments"), {
+    //     fees,
+    //     date,
+    //     doctorName,
+    //     appointmentTime,
+    //     doctorEmail: doctorEmail,
+    //     speciality: selectedSpeciality,
+    //     userDetails: userDetails
+    //   });
+    //   alert("Appoitnment booked successfully.");
+    //   navigate("/appointments");
+    // } catch (e) {
+    //   console.error("Error inserting data", e);
+    // }
   };
 
   return (
@@ -139,7 +147,7 @@ function BookAppointment() {
                     value={date}
                     required
                     onChange={(e) => setDate(e.target.value)}
-                    min={new Date().toISOString().split('T')[0]}
+                    min={new Date().toISOString().split("T")[0]}
                   />
                   <br />
 
@@ -156,7 +164,7 @@ function BookAppointment() {
 
                   <br />
                   <button type="submit" className="login-btn">
-                    Schedule Appointment
+                    Proceed to Payment
                   </button>
                 </form>
               </div>
