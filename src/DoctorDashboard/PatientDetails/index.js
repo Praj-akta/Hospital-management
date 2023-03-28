@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Sidebar from "../../components/Dashboard/Sidebar";
 import DashboardHeader from "../../components/Dashboard/DashboardHeader";
 import "./index.scss";
 
 function PatientDetails() {
+  const navigate = useNavigate();
 
   return (
     <div className="admin-dashboard doctor-dashboard">
@@ -12,8 +14,8 @@ function PatientDetails() {
         <DashboardHeader />
         <div className="content">
           <div className="patient-details">
-          <h2>Patient Details</h2>
-          <table>
+            <h2>Patient Details</h2>
+            <table>
               <tr>
                 <th>Patient Name:</th>
                 <td>Tesha</td>
@@ -38,10 +40,14 @@ function PatientDetails() {
                 <th>Appointment Date and Time</th>
                 <td>2023-04-12 12:45 </td>
               </tr>
-            
-          </table>
-          <button type="submit">Add Medical History</button>
-        </div>
+            </table>
+            <button
+              type="submit"
+              onClick={(_) => navigate("/doctor-dashboard/add-medical-history")}
+            >
+              Add Medical History
+            </button>
+          </div>
         </div>
       </div>
     </div>
