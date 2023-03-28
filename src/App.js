@@ -3,8 +3,9 @@ import User from "./User";
 import Admin from "./Admin";
 import Home from "./Home/home";
 import Login from "./Login/login";
-import Patients from "./Admin/Patients";
 import Profile from "./User/Profile";
+import LabTests from "./User/LabTests";
+import Patients from "./Admin/Patients";
 import Register from "./Register/register";
 import AdminLogin from "./Login/AdminLogin";
 import ChangePassword from "./ChangePassword";
@@ -18,6 +19,7 @@ import AdminAppointments from "./Admin/Appointments";
 import EditDoctors from "./Admin/Doctors/editDoctors";
 import EditPatient from "./Admin/Patients/editPatients";
 import ManageDoctor from "./Admin/Doctors/ManageDoctor";
+import PatientDetails from "./DoctorDashboard/PatientDetails";
 import DoctorsAppointments from "./DoctorDashboard/Appointments";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import './App.css';
@@ -48,9 +50,11 @@ function App() {
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/appointments" element={<Appointments />}></Route>
           <Route path="/book-appointment" element={<BookAppointment />}></Route>
+          <Route path="/lab-tests" element={<LabTests />}> </Route>
           {/* doctor dashboard routes */}
           <Route path="/doctor-dashboard" element={<DoctorDashboard />}></Route>
           <Route path="/doctor-dashboard/appointments" element={<DoctorsAppointments />}></Route>
+          <Route path="/doctor-dashboard/patients-details" element={<PatientDetails />}></Route>
         </Routes> 
       </div>
     </Router>
