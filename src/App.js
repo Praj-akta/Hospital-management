@@ -21,6 +21,7 @@ import ManageDoctor from "./Admin/Doctors/ManageDoctor";
 import DoctorsAppointments from "./DoctorDashboard/Appointments";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import './App.css';
+import HealthForm from "./DoctorDashboard/HealthForm/HealthForm";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
+          <Route exact path="/doctor-dashboard/healthform" element={<HealthForm />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/patient-login" element={<PatientLogin />}></Route>
           <Route path="/admin-login" element={<AdminLogin />}></Route>
