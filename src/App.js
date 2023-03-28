@@ -33,11 +33,6 @@ function App() {
       <div className="App">
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
-          <Route
-            exact
-            path="/doctor-dashboard/healthform"
-            element={<HealthForm />}
-          ></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/patient-login" element={<PatientLogin />}></Route>
           <Route path="/admin-login" element={<AdminLogin />}></Route>
@@ -67,7 +62,8 @@ function App() {
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/appointments" element={<Appointments />}></Route>
           <Route path="/book-appointment" element={<BookAppointment />}></Route>
-          <Route path="/book-appointment/payment" element={<Payment />}></Route>
+          <Route path="/lab-tests" element={<LabTests />}>
+          </Route>
 
           {/* doctor dashboard routes */}
           <Route path="/doctor-dashboard" element={<DoctorDashboard />}></Route>
@@ -76,16 +72,18 @@ function App() {
             element={<DoctorsAppointments />}
           ></Route>
           <Route
-            path="/doctor-dashboard/reschedule-appointment"
-            element={<ReScheduleAppointment />}
-          ></Route>
-
-          <Route path="/lab-tests" element={<LabTests />}>
-          </Route>
-          
-          <Route
             path="/doctor-dashboard/patients-details"
             element={<PatientDetails />}
+          ></Route>
+          <Route
+            exact
+            path="/doctor-dashboard/add-medical-history"
+            element={<HealthForm />}
+          ></Route>
+          <Route path="/book-appointment/payment" element={<Payment />}></Route>
+          <Route
+            path="/doctor-dashboard/reschedule-appointment"
+            element={<ReScheduleAppointment />}
           ></Route>
         </Routes>
       </div>

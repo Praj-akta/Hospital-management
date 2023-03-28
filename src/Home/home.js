@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import Slider from "../Slider";
 import slides from "../mock.json";
 import ECG from "../images/ecg.png";
@@ -179,6 +180,18 @@ function Home() {
           </div>
         </div>
 
+        <h1>Testimonials </h1>
+        <div class="testimonialContainer">
+      
+        <span>James Anderson</span>
+        <p>Dr. Kiera Patel is a hard working and comitted individual.</p>
+        </div>
+        <div class="testimonialContainer">
+    
+        <span>Steve Boulder</span>
+        <p>Dr. Leilani Kim treated me well and the pain was gone within  a week.</p>
+        </div>
+
         {/* doctors */}
         <div id="doctors">
           <div className="header-doc-container">
@@ -279,6 +292,19 @@ function Home() {
                   1200, A-block, Back lane UK +10 238 4473 477 hms@contact.com
                 </p>
               </div>
+
+              <div className="socialMedia">
+                  <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+                    <FaFacebook />
+                  </a>
+                  <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+                    <FaTwitter />
+                  </a>
+                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                    <FaInstagram />
+                  </a>
+              </div>
+
             </div>
           </div>
         </div>
