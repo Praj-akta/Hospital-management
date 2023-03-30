@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { db } from "../../firebase";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../../components/Dashboard/Sidebar";
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import DashboardHeader from "../../components/Dashboard/DashboardHeader";
 import "./index.scss";
 
@@ -53,27 +53,26 @@ function BookAppointment() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const _details = {
+      fees,
+      date,
+      doctorName,
+      appointmentTime,
+      doctorEmail: doctorEmail,
+      speciality: selectedSpeciality,
+      userDetails: userDetails
+    }
+
     if (!selectedSpeciality && !doctorName && !fees) {
       alert("All fields are required.");
     } else {
-      navigate("/book-appointment/payment");
+      navigate("/book-appointment/payment", {
+        state: _details
+      });
     }
 
-    // try {
-    //   await addDoc(collection(db, "appointments"), {
-    //     fees,
-    //     date,
-    //     doctorName,
-    //     appointmentTime,
-    //     doctorEmail: doctorEmail,
-    //     speciality: selectedSpeciality,
-    //     userDetails: userDetails
-    //   });
-    //   alert("Appoitnment booked successfully.");
-    //   navigate("/appointments");
-    // } catch (e) {
-    //   console.error("Error inserting data", e);
-    // }
+    
+   
   };
 
   return (
