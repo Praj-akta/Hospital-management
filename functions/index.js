@@ -17,14 +17,14 @@ app.get("/", (req, res) => {
   res.status(200).send("Hello world");
 });
 
-app.post("/payments/create", async (req, res) => {
-  const total = req.query.total;
-  console.log("total_______", total);
+app.post("/payment/create", async (req, res) => {
+  const total = req.body.amount * 100;
+  console.log("total_______", req.body.amount);
   const paymentIntent = await stripe.paymentIntents.create({
     currency: "cad",
     amount: parseInt(total),
+    payment_method_types: ["card"],
   });
-  console.log("paymentIntent_______", paymentIntent);
   res.status(201).send({
     clientSecret: paymentIntent.client_secret,
   });

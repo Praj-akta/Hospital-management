@@ -62,8 +62,8 @@ function App() {
           <Route path="/profile" element={<Profile />}></Route>
           <Route path="/appointments" element={<Appointments />}></Route>
           <Route path="/book-appointment" element={<BookAppointment />}></Route>
-          <Route path="/lab-tests" element={<LabTests />}>
-          </Route>
+          <Route path="/book-appointment/payment" element={<Payment />}></Route>
+          <Route path="/lab-tests" element={<LabTests />}></Route>
 
           {/* doctor dashboard routes */}
           <Route path="/doctor-dashboard" element={<DoctorDashboard />}></Route>
@@ -80,7 +80,6 @@ function App() {
             path="/doctor-dashboard/add-medical-history"
             element={<HealthForm />}
           ></Route>
-          <Route path="/book-appointment/payment" element={<Payment />}></Route>
           <Route
             path="/doctor-dashboard/reschedule-appointment"
             element={<ReScheduleAppointment />}

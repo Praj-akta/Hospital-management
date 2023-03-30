@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "../../axios";
 import { db } from "../../firebase";
 import {
-  CardElement,
   PaymentElement,
   useElements,
   useStripe,
@@ -15,13 +14,18 @@ function CheckoutForm({ details }) {
   const [clientSecret, setClientSecret] = useState(true);
 
   useEffect(() => {
+    const base_url =
+      "http://127.0.0.1:5001/hospital-management-6b160/us-central1/api";
     const getClientSecret = async () => {
-      const response = await axios({
+      const { data } = await axios({
         method: "post",
-        url: `/payments/create?amount=${details.fees}`,
+        url: `${base_url}/payment/create`,
+        data: {
+          amount: details.fees,
+        },
       });
-      if (response) {
-        setClientSecret(response.data.clientSecret);
+      if (data.clientSecret) {
+        setClientSecret(data.clientSecret);
       }
     };
     if (details.fees) {
@@ -31,18 +35,20 @@ function CheckoutForm({ details }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("clientSecret", clientSecret);
+    console.log(elements.getElement(PaymentElement))
     await stripe
-      .confirmCardPayment(clientSecret, {
+      .confirmCardPayment(clientSecret.toString(), {
         payment_method: {
-          card: elements.getElement(CardElement),
-        },
+          card: elements.getElement(PaymentElement),
+        }
       })
       .then(({ paymentIntent }) => {
         console.log("paymentIntent", paymentIntent);
-        addDoc(collection(db, "appointments"), details);
-        alert("Appoitnment booked successfully.");
-        // navigate("/appointments");
+        if (paymentIntent) {
+          addDoc(collection(db, "appointments"), details);
+          alert("Appoitnment booked successfully.");
+          // navigate("/appointments");
+        }
       })
       .catch((e) => {
         console.error("Error inserting data", e);
@@ -51,8 +57,9 @@ function CheckoutForm({ details }) {
 
   return (
     <form onSubmit={handleSubmit} className="checkout-form">
+      <h2 className="mb-5"> Your total is: ${details.fees}</h2>
       <PaymentElement />
-      <button disabled={!stripe}>Submit</button>
+      <button disabled={!stripe}>Pay</button>
     </form>
   );
 }
