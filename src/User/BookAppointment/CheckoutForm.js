@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "../../axios";
 import { db } from "../../firebase";
-import {
-  PaymentElement,
-  useElements,
-  useStripe,
-} from "@stripe/react-stripe-js";
+import { useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore";
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 
 function CheckoutForm({ details }) {
   const stripe = useStripe();
   const elements = useElements();
+  const navigate = useNavigate();
 
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
@@ -33,22 +31,24 @@ function CheckoutForm({ details }) {
         setClientSecret(data.clientSecret);
       }
     };
-    if (details.fees) {
+    if (details && details.fees) {
       getClientSecret();
+    } else {
+      navigate("/appointments");
     }
-  }, [details.fees]);
+  }, [details, navigate]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setProcessing(true);
     const stringClientSecret = clientSecret.toString();
-    console.log(elements.getElement(PaymentElement));
 
     await stripe
       .confirmCardPayment(stringClientSecret, {
         payment_method: {
-          card: elements.getElement(PaymentElement),
+          card: elements.getElement(CardElement),
           billing_details: {
-            name: "Jenny Rosen",
+            name: `${details.userDetails.firstname} ${details.userDetails.lastname}`,
           },
         },
       })
@@ -59,7 +59,7 @@ function CheckoutForm({ details }) {
           alert("Appoitnment booked successfully.");
           setSucceeded(true);
           setProcessing(false);
-          // navigate("/appointments");
+          navigate("/appointments");
         }
       })
       .catch((e) => {
@@ -73,14 +73,18 @@ function CheckoutForm({ details }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="checkout-form">
-      <h2 className="mb-5"> Your total is: ${details.fees}</h2>
-      <PaymentElement onChange={handleChange} />
-      <button disabled={processing || succeeded || disabled}>
-        <span> {processing ? <p>Processing</p> : "Pay now"} </span>
-      </button>
-      {error && <div>{error}</div>}
-    </form>
+    <div>
+      {details && details.fees && (
+        <form onSubmit={handleSubmit} className="checkout-form">
+          <h2 className="mb-5"> Your total is: ${details.fees}</h2>
+          <CardElement onChange={handleChange} />
+          <button disabled={processing || succeeded || disabled}>
+            <span> {processing ? "Processing..." : "Pay now"} </span>
+          </button>
+          {error && <div>{error}</div>}
+        </form>
+      )}
+    </div>
   );
 }
 

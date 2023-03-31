@@ -49,7 +49,7 @@ function Appointments() {
                         <td>{value.speciality}</td>
                         <td>{value.date}</td>
                         <td>{value.appointmentTime}</td>
-                        <td>{value.fees}</td>
+                        <td>${value.fees}</td>
                       </tr>
                     );
                   })}
