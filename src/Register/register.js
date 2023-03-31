@@ -3,13 +3,17 @@ import { auth, db } from "../firebase";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
 import { collection, addDoc } from "firebase/firestore";
-import { createUserWithEmailAndPassword, sendEmailVerification } from "firebase/auth";
+import {
+  sendEmailVerification,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 import "../Login/login.scss";
 
 function Register() {
   const navigate = useNavigate();
   const [err, setErr] = useState(null);
   const [email, setEmail] = useState("");
+  const [gender, setGender] = useState("");
   const [address, setAddress] = useState("");
   const [dob, setDateOfBirth] = useState("");
   const [password, setPassword] = useState("");
@@ -34,7 +38,7 @@ function Register() {
           }
         });
 
-      const user = { firstname, lastname, address, email, dob };
+      const user = { firstname, lastname, address, email, dob, gender };
       try {
         await addDoc(collection(db, "users"), {
           user: user,
@@ -110,6 +114,33 @@ function Register() {
                 onChange={(e) => setDateOfBirth(e.target.value)}
               />
 
+              <label>Gender:</label>
+              <br />
+              <div className="gender-container">
+                <div className="gender-male">
+                  <input
+                    type="radio"
+                    id="gender"
+                    name="gender"
+                    required
+                    value="male"
+                    onChange={(_) => setGender("male")}
+                  />
+                  Male
+                </div>
+                <div className="gender-female">
+                  <input
+                    type="radio"
+                    id="gender"
+                    name="gender"
+                    required
+                    value="female"
+                    onChange={(_) => setGender("female")}
+                  />
+                  Female
+                </div>
+              </div>
+
               <label>Password:</label>
               <br />
               <input
@@ -133,7 +164,8 @@ function Register() {
 
               <br />
               <div>
-                Already have an Account? &nbsp;<a href="/login">Login Here</a>
+                Already have an Account? &nbsp;
+                <a href="/patient-login">Login Here</a>
               </div>
               <br />
               <button type="submit" className="login-btn">
