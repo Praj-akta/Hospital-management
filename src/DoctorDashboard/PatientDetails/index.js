@@ -71,7 +71,7 @@ function PatientDetails() {
                   <th>Body Temperature</th>
                   <th>Prescription</th>
                   <th>Lab Tests</th>
-                  <th>Lab Test Results</th>
+                  <th>Lab Test Status</th>
                 </tr>
               </thead>
               {selectedUserDetails &&

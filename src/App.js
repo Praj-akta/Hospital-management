@@ -14,6 +14,7 @@ import DoctorDashboard from "./DoctorDashboard";
 import PatientLogin from "./Login/PatientLogin";
 import Appointments from "./User/Appointments";
 import AddDoctor from "./Admin/Doctors/AddDoctor";
+import LabReport from "./User/LabTests/LabReport";
 import Payment from "./User/BookAppointment/Payment";
 import BookAppointment from "./User/BookAppointment";
 import AdminAppointments from "./Admin/Appointments";
@@ -60,6 +61,7 @@ function App() {
           {/* user routes */}
           <Route path="/user" element={<User />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/download-pdf" element={<LabReport />}></Route>
           <Route path="/appointments" element={<Appointments />}></Route>
           <Route path="/book-appointment" element={<BookAppointment />}></Route>
           <Route path="/book-appointment/payment" element={<Payment />}></Route>
