@@ -69,6 +69,7 @@ function CheckoutForm({ details }) {
 
   const handleChange = (e) => {
     setDisabled(e.empty);
+    setProcessing(false);
     setError(e.error ? e.error.message : null);
   };
 
@@ -76,7 +77,14 @@ function CheckoutForm({ details }) {
     <div>
       {details && details.fees && (
         <form onSubmit={handleSubmit} className="checkout-form">
-          <h2 className="mb-5"> Your total is: ${details.fees}</h2>
+          <div className="appointment-details">
+            <h2> Appoitnment Details </h2>
+            <p> <strong>Doctor Name:</strong> {details.doctorName} </p>
+            <p> <strong>Appoitnment Date:</strong> {details.date} </p>
+            <p> <strong>Appoitnment Time:</strong> {details.appointmentTime} </p>
+            <p> <strong>Your total amount is:</strong> ${details.fees} </p>
+          </div>
+          <h2> Payment Details </h2>
           <CardElement onChange={handleChange} />
           <button disabled={processing || succeeded || disabled}>
             <span> {processing ? "Processing..." : "Pay now"} </span>

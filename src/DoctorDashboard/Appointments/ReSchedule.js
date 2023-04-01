@@ -11,7 +11,6 @@ function ReScheduleAppointment() {
   const navigate = useNavigate();
   const [date, setDate] = useState(state.date);
   const [time, setAppointmentTime] = useState(state.appointmentTime);
-  console.log(state);
 
   const rescheduleAppt = (e) => {
     e.preventDefault();
