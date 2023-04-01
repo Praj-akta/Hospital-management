@@ -15,7 +15,7 @@ function HealthForm() {
 
   return (
   <div className="HealthForm">
-    <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
       <label>
         Blood Pressure:
         <input type="text" value={bloodPressure} onChange={(event) => setBloodPressure(event.target.value)} />

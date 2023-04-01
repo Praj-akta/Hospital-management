@@ -70,7 +70,11 @@ function Appointments() {
                             size="20"
                             color="green"
                             onClick={() =>
-                              navigate("/doctor-dashboard/patients-details")
+                              navigate("/doctor-dashboard/patients-details", {
+                                state: {
+                                  ...value
+                                }
+                              })
                             }
                           />
                           {"   "}
