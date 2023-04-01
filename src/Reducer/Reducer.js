@@ -1,11 +1,10 @@
 import { SET_APPOINTMENTS_LIST, SET_DOCTORS_LIST, SET_PATIENTS_LIST } from "./Action";
 import { CgProfile } from "react-icons/cg";
 import { GiNotebook } from "react-icons/gi";
-import { TbReportSearch } from "react-icons/tb";
-import { BsCalendar2WeekFill } from "react-icons/bs";
 import { MdWorkOutline } from "react-icons/md";
 import { MdManageSearch } from "react-icons/md";
-import { BiCommentDetail } from "react-icons/bi";
+import { TbReportSearch } from "react-icons/tb";
+import { BsCalendar2WeekFill } from "react-icons/bs";
 
 export const initialState = {
   doctors: [],
@@ -27,11 +26,6 @@ export const initialState = {
       name: "Appointments",
       url: "/doctor-dashboard/appointments",
       iconName: <MdWorkOutline />,
-    },
-    {
-      name: "Patients Details",
-      url: "/doctor-dashboard/patients-details",
-      iconName: <BiCommentDetail />,
     },
     { name: "Search", url: "/doctor-dashboard", iconName: <MdManageSearch /> },
   ],

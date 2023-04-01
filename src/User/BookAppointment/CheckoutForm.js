@@ -53,7 +53,6 @@ function CheckoutForm({ details }) {
         },
       })
       .then(({ paymentIntent }) => {
-        console.log("paymentIntent", paymentIntent);
         if (paymentIntent) {
           addDoc(collection(db, "appointments"), details);
           alert("Appoitnment booked successfully.");

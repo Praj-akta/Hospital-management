@@ -21,7 +21,7 @@ import EditDoctors from "./Admin/Doctors/editDoctors";
 import EditPatient from "./Admin/Patients/editPatients";
 import ManageDoctor from "./Admin/Doctors/ManageDoctor";
 import PatientDetails from "./DoctorDashboard/PatientDetails";
-import HealthForm from "./DoctorDashboard/HealthForm/HealthForm";
+import MedicalHistory from "./DoctorDashboard/MedicalHistory";
 import DoctorsAppointments from "./DoctorDashboard/Appointments";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import ReScheduleAppointment from "./DoctorDashboard/Appointments/ReSchedule";
@@ -78,7 +78,7 @@ function App() {
           <Route
             exact
             path="/doctor-dashboard/add-medical-history"
-            element={<HealthForm />}
+            element={<MedicalHistory />}
           ></Route>
           <Route
             path="/doctor-dashboard/reschedule-appointment"

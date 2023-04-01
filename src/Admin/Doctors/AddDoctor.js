@@ -4,8 +4,8 @@ import AdminHeader from "../AdminHeader";
 import AdminSidebar from "../AdminSidebar";
 import { useNavigate } from "react-router-dom";
 import { addDoc, collection } from "firebase/firestore";
-import "../index.scss";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import "../index.scss";
 
 function AddDoctor() {
   const navigate = useNavigate();
@@ -14,8 +14,8 @@ function AddDoctor() {
   const [phone, setPhone] = useState("");
   const [docname, setDocname] = useState("");
   const [address, setAddress] = useState("");
-  const [speciality, setSpeciality] = useState("");
   const [password, setPassword] = useState("");
+  const [speciality, setSpeciality] = useState("");
   const [confirmpassword, setConfirmpassword] = useState("");
 
   const handleSubmit = async (e) => {

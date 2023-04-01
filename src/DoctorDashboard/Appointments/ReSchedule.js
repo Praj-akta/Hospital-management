@@ -114,7 +114,10 @@ function ReScheduleAppointment() {
             <br />
 
             <br />
-            <button type="submit">Reschedule</button>
+            <button type="button" onClick={(_) => navigate("/doctor-dashboard/appointments")}>
+              Go Back
+            </button> 
+            <button type="submit" className="mx-4">Reschedule</button>
           </form>
         </div>
       </div>
