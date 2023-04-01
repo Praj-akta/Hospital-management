@@ -1,10 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Sidebar from "../../components/Dashboard/Sidebar";
 import DashboardHeader from "../../components/Dashboard/DashboardHeader";
 import "./index.scss";
 import { useLocation } from "react-router-dom";
 
 function PatientDetails() {
+  const navigate = useNavigate();
   const { state } = useLocation();
   // const today = new Date();
   // const dob = Date(state.userDetails.dob)
@@ -18,8 +20,8 @@ function PatientDetails() {
         <DashboardHeader />
         <div className="content">
           <div className="patient-details">
-          <h2>Patient Details</h2>
-          <table>
+            <h2>Patient Details</h2>
+            <table>
               <tr>
                 <th>Patient Name:</th>
                 <td>{`${state.userDetails.firstname} ${state.userDetails.lastname}`}</td>
@@ -44,10 +46,14 @@ function PatientDetails() {
                 <th>Appointment Date and Time</th>
                 <td>{state.userDetails.date}</td>
               </tr>
-            
-          </table>
-          <button type="submit">Add Medical History</button>
-        </div>
+            </table>
+            <button
+              type="submit"
+              onClick={(_) => navigate("/doctor-dashboard/add-medical-history")}
+            >
+              Add Medical History
+            </button>
+          </div>
         </div>
       </div>
     </div>
