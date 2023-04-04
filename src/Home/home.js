@@ -1,6 +1,5 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import Slider from "../Slider";
 import slides from "../mock.json";
 import ECG from "../images/ecg.png";
@@ -11,14 +10,15 @@ import DOC4 from "../images/Doctor4.jpeg";
 import DOC5 from "../images/Doctor5.jpeg";
 import DOC6 from "../images/Doctor6.jpeg";
 import Header from "../components/Header";
-import ABOUTIMG1 from "../images/About1.jpeg";
-import ABOUTIMG2 from "../images/About2.jpeg";
 import DEPARTMENT1 from "../images/Eye.jpeg";
 import DEPARTMENT2 from "../images/Skin.jpeg";
-import DEPARTMENT3 from "../images/Pathology.jpeg";
-import DEPARTMENT4 from "../images/Medical.jpeg";
+import ABOUTIMG1 from "../images/About1.jpeg";
+import ABOUTIMG2 from "../images/About2.jpeg";
 import DEPARTMENT5 from "../images/Dental.jpeg";
+import DEPARTMENT4 from "../images/Medical.jpeg";
+import DEPARTMENT3 from "../images/Pathology.jpeg";
 import DEPARTMENT6 from "../images/Diagnostic.jpeg";
+import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import "./home.scss";
 
 function Home() {
@@ -181,15 +181,15 @@ function Home() {
         </div>
 
         <h1>Testimonials </h1>
-        <div class="testimonialContainer">
-      
-        <span>James Anderson</span>
-        <p>Dr. Kiera Patel is a hard working and comitted individual.</p>
+        <div className="testimonialContainer">
+          <span>James Anderson</span>
+          <p>Dr. Kiera Patel is a hard working and comitted individual.</p>
         </div>
-        <div class="testimonialContainer">
-    
-        <span>Steve Boulder</span>
-        <p>Dr. Leilani Kim treated me well and the pain was gone within  a week.</p>
+        <div className="testimonialContainer">
+          <span>Steve Boulder</span>
+          <p>
+            Dr. Leilani Kim treated me well and the pain was gone within a week.
+          </p>
         </div>
 
         {/* doctors */}
@@ -294,17 +294,28 @@ function Home() {
               </div>
 
               <div className="socialMedia">
-                  <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-                    <FaFacebook />
-                  </a>
-                  <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
-                    <FaTwitter />
-                  </a>
-                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-                    <FaInstagram />
-                  </a>
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaFacebook />
+                </a>
+                <a
+                  href="https://twitter.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaTwitter />
+                </a>
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaInstagram />
+                </a>
               </div>
-
             </div>
           </div>
         </div>

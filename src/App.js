@@ -14,6 +14,7 @@ import DoctorDashboard from "./DoctorDashboard";
 import PatientLogin from "./Login/PatientLogin";
 import Appointments from "./User/Appointments";
 import AddDoctor from "./Admin/Doctors/AddDoctor";
+import LabReport from "./User/LabTests/LabReport";
 import Payment from "./User/BookAppointment/Payment";
 import BookAppointment from "./User/BookAppointment";
 import AdminAppointments from "./Admin/Appointments";
@@ -21,7 +22,7 @@ import EditDoctors from "./Admin/Doctors/editDoctors";
 import EditPatient from "./Admin/Patients/editPatients";
 import ManageDoctor from "./Admin/Doctors/ManageDoctor";
 import PatientDetails from "./DoctorDashboard/PatientDetails";
-import HealthForm from "./DoctorDashboard/HealthForm/HealthForm";
+import MedicalHistory from "./DoctorDashboard/MedicalHistory";
 import DoctorsAppointments from "./DoctorDashboard/Appointments";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import ReScheduleAppointment from "./DoctorDashboard/Appointments/ReSchedule";
@@ -33,11 +34,6 @@ function App() {
       <div className="App">
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
-          <Route
-            exact
-            path="/doctor-dashboard/healthform"
-            element={<HealthForm />}
-          ></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/patient-login" element={<PatientLogin />}></Route>
           <Route path="/admin-login" element={<AdminLogin />}></Route>
@@ -65,9 +61,11 @@ function App() {
           {/* user routes */}
           <Route path="/user" element={<User />}></Route>
           <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/download-pdf" element={<LabReport />}></Route>
           <Route path="/appointments" element={<Appointments />}></Route>
           <Route path="/book-appointment" element={<BookAppointment />}></Route>
           <Route path="/book-appointment/payment" element={<Payment />}></Route>
+          <Route path="/lab-tests" element={<LabTests />}></Route>
 
           {/* doctor dashboard routes */}
           <Route path="/doctor-dashboard" element={<DoctorDashboard />}></Route>
@@ -76,16 +74,17 @@ function App() {
             element={<DoctorsAppointments />}
           ></Route>
           <Route
-            path="/doctor-dashboard/reschedule-appointment"
-            element={<ReScheduleAppointment />}
-          ></Route>
-
-          <Route path="/lab-tests" element={<LabTests />}>
-          </Route>
-          
-          <Route
             path="/doctor-dashboard/patients-details"
             element={<PatientDetails />}
+          ></Route>
+          <Route
+            exact
+            path="/doctor-dashboard/add-medical-history"
+            element={<MedicalHistory />}
+          ></Route>
+          <Route
+            path="/doctor-dashboard/reschedule-appointment"
+            element={<ReScheduleAppointment />}
           ></Route>
         </Routes>
       </div>

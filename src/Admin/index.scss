@@ -80,7 +80,8 @@
     .div1,
     .div2,
     .div3,
-    .div4 {
+    .div4,
+    .div5 {
       display: flex;
       padding: 40px 20px;
       font-size: 27px;
@@ -112,6 +113,9 @@
     }
     .div4 {
       background: rgba(214, 50, 50, 0.88);
+    }
+    .div5 {
+      background: rgba(152, 48, 105, 0.88);
     }
   }
   .dropdown {

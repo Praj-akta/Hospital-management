@@ -11,7 +11,6 @@ function ReScheduleAppointment() {
   const navigate = useNavigate();
   const [date, setDate] = useState(state.date);
   const [time, setAppointmentTime] = useState(state.appointmentTime);
-  console.log(state);
 
   const rescheduleAppt = (e) => {
     e.preventDefault();
@@ -115,7 +114,10 @@ function ReScheduleAppointment() {
             <br />
 
             <br />
-            <button type="submit">Reschedule</button>
+            <button type="button" onClick={(_) => navigate("/doctor-dashboard/appointments")}>
+              Go Back
+            </button> 
+            <button type="submit" className="mx-4">Reschedule</button>
           </form>
         </div>
       </div>

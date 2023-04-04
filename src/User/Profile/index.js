@@ -8,6 +8,7 @@ import "./index.scss";
 function Profile() {
   const currentEmail = localStorage.getItem("email");
   const [email, setEmail] = useState("");
+  const [gender, setGender] = useState("");
   const [address, setAddress] = useState("");
   const [dob, setDateOfBirth] = useState("");
   const [lastname, setLastName] = useState("");
@@ -19,13 +20,14 @@ function Profile() {
       const usersData = querySnapshot.docs.map((doc) => {
         const userId = doc.id;
         const data = doc.data().user;
-        const result = {userId, ...data};
+        const result = { userId, ...data };
         return result;
       });
       const currentUser = usersData.find(({ email }) => email === currentEmail);
       if (currentUser) {
         setCurrentUser(currentUser);
         setEmail(currentUser.email);
+        setGender(currentUser.gender);
         setFirstname(currentUser.firstname);
         setLastName(currentUser.lastname);
         setAddress(currentUser.address);
@@ -43,6 +45,7 @@ function Profile() {
         lastname,
         email,
         dob,
+        gender,
         address,
       },
     }).then(() => alert("Your profile has been updated."));
@@ -55,7 +58,7 @@ function Profile() {
         <DashboardHeader />
         <div className="content profile-form">
           <div className="row login-form">
-            <div className="col-sm-12 col-lg-6 p-0">
+            <div className="col-sm-12 col-lg-9 p-0">
               <div className="login-form-holder">
                 <form name="editProfile" onSubmit={onSubmit}>
                   <h3>Edit Profile</h3>
@@ -97,6 +100,35 @@ function Profile() {
                     onChange={(e) => setEmail(e.target.value)}
                   />
                   <br />
+
+                  <label>Gender:</label>
+                  <br />
+                  <div className="gender-container">
+                    <div className="gender-male">
+                      <input
+                        type="radio"
+                        id="gender"
+                        name="gender"
+                        required
+                        value="male"
+                        checked={gender === "male"}
+                        onChange={(_) => setGender("male")}
+                      />
+                      Male
+                    </div>
+                    <div className="gender-female">
+                      <input
+                        type="radio"
+                        id="gender"
+                        name="gender"
+                        required
+                        value="female"
+                        checked={gender === "female"}
+                        onChange={(_) => setGender("female")}
+                      />
+                      Female
+                    </div>
+                  </div>
 
                   <label>Address:</label>
                   <br />
