@@ -19,7 +19,7 @@ function LabReport() {
           </button>
         )}
       </Pdf>
-      <div ref={ref} className="col-9 lab-report-pdf">
+      <div ref={ref} className="col-8 lab-report-pdf">
         <div className="col-12 logo-div">
           <img src={logo} alt="logo-design" />
         </div>
