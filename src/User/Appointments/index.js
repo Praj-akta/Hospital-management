@@ -8,12 +8,26 @@ import "./index.scss";
 
 function Appointments() {
   const [appointments, setAppointments] = useState(null);
+  const [list, setList] = useState(null);
+
   useEffect(() => {
     getDocs(collection(db, "appointments")).then((querySnapshot) => {
       const data = querySnapshot.docs.map((doc) => doc.data());
       setAppointments(data);
     });
   }, []);
+
+  useEffect(() => {
+    if (appointments && appointments.length > 0) {
+      const list = appointments.reduce((accum, value, index) => {
+        if(value.userDetails.email === localStorage.getItem("email")) {
+          accum.push(value);
+        }
+        return accum;
+      }, []);
+      setList(list)
+    }
+  }, [appointments]);
 
   return (
     <div className="admin-dashboard user-dashboard">
@@ -40,8 +54,8 @@ function Appointments() {
                 </tr>
               </thead>
               <tbody>
-                {appointments?.length > 0 &&
-                  appointments.map((value, index) => {
+                {list?.length > 0 &&
+                  list.map((value, index) => {
                     return (
                       <tr key={index}>
                         <td>{index + 1}</td>

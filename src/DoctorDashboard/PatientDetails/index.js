@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { db } from "../../firebase";
+import { Table } from "react-bootstrap";
 import { collection, getDocs } from "firebase/firestore";
 import Sidebar from "../../components/Dashboard/Sidebar";
 import { useNavigate, useLocation } from "react-router-dom";
 import DashboardHeader from "../../components/Dashboard/DashboardHeader";
 import "./index.scss";
-import { Table } from "react-bootstrap";
 
 function PatientDetails() {
   const navigate = useNavigate();
   const { state } = useLocation();
+  const [age, setAge] = useState(null);
   const [selectedUserDetails, setUserDetails] = useState(null);
 
   useEffect(() => {
@@ -19,7 +20,17 @@ function PatientDetails() {
         ?.data()?.user;
       setUserDetails(data);
     });
-  });
+    calculate_age(state.userDetails.dob);
+  }, [state.userDetails.email, state.userDetails.dob]);
+
+  const calculate_age = (dob) => {
+    const birthDate = new Date(dob);
+    const difference = Date.now() - birthDate.getTime();
+    const age = new Date(difference);
+    const _age = Math.abs(age.getUTCFullYear() - 1970);
+    setAge(_age);
+    return _age;
+  };
 
   return (
     <div className="admin-dashboard doctor-dashboard">
@@ -46,8 +57,8 @@ function PatientDetails() {
                 <tr>
                   <th>Gender:</th>
                   <td>Male</td>
-                  <th>Date of Birth:</th>
-                  <td>{state.userDetails.dob}</td>
+                  <th>Age:</th>
+                  <td>{age}</td>
                 </tr>
                 <tr>
                   <th>Medical History(if any):</th>
@@ -71,10 +82,10 @@ function PatientDetails() {
                   <th>Body Temperature</th>
                   <th>Prescription</th>
                   <th>Lab Tests</th>
-                  <th>Lab Test Status</th>
                 </tr>
               </thead>
               {selectedUserDetails &&
+              selectedUserDetails.medicalReports &&
               selectedUserDetails.medicalReports.length > 0 ? (
                 <tbody>
                   {selectedUserDetails.medicalReports.map((value, index) => {
@@ -86,7 +97,6 @@ function PatientDetails() {
                         <td>{value.bodyTemperature}</td>
                         <td>{value.prescription}</td>
                         <td>{value.labTestName ? value.labTestName : "-"}</td>
-                        <td>{value.labTestStatus ? value.labTestStatus : "-"}</td>
                       </tr>
                     );
                   })}

@@ -8,18 +8,18 @@ import "./index.scss";
 function LabReport() {
   const ref = useRef();
   const { state } = useLocation();
-  const details = state;
+  const { details, medicalReport, date } = state;
 
   return (
-    <div className="col-12 lab-report-pdf">
+    <div>
       <Pdf targetRef={ref} filename="report.pdf">
         {({ toPdf }) => (
-          <button onClick={toPdf} className="btn btn-primary">
+          <button onClick={toPdf} className="btn btn-primary download-pdf">
             Download PDF
           </button>
         )}
       </Pdf>
-      <div ref={ref}>
+      <div ref={ref} className="col-9 lab-report-pdf">
         <div className="col-12 logo-div">
           <img src={logo} alt="logo-design" />
         </div>
@@ -27,14 +27,22 @@ function LabReport() {
         <div className="content">
           <div className="name-and-date">
             <p>
-              <strong>Patient Name:</strong>
+              <strong>Patient Name: </strong>
               {details?.firstname} {details?.lastname}
             </p>
+            <p>
+              <strong>Date:</strong>
+              {date}
+            </p>
           </div>
-          <p className="my-4">
-            <strong>Comments: Need to take test. </strong>
+          <br />
+
+          <p className=" text-left">
+            <strong>Comments: </strong> {medicalReport.prescription}
           </p>
-          <div className="d-flex flex-wrap">
+          <br />
+
+          <div className="d-flex flex-wrap text-left">
             <p className="col-6">
               <strong>Patient ID Number:</strong> 5625242
             </p>
@@ -44,8 +52,28 @@ function LabReport() {
             <p className="col-6">
               <strong>Medications:</strong> none
             </p>
+            <br />
+            <br />
           </div>
           <div>
+            <Table>
+              <thead>
+                <tr>
+                  <th>Blood Pressure</th>
+                  <th>Blood Sugar</th>
+                  <th>Body temperature</th>
+                  <th>Lab Test name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{medicalReport.bloodPressure}</td>
+                  <td>{medicalReport.bloodSugar}</td>
+                  <td>{medicalReport.bodyTemperature}</td>
+                  <td>{medicalReport.labTestName}</td>
+                </tr>
+              </tbody>
+            </Table>
             <Table responsive stripedble="true">
               <thead>
                 <tr>

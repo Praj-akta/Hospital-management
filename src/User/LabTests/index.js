@@ -9,6 +9,13 @@ import "./index.scss";
 
 function LabTests() {
   const navigate = useNavigate();
+  let today = new Date();
+  let date =
+    today.getDate() +
+    "/" +
+    parseInt(today.getMonth() + 1) +
+    "/" +
+    today.getFullYear();
   const [userDetails, setUserDetails] = useState(null);
 
   useEffect(() => {
@@ -20,6 +27,17 @@ function LabTests() {
     });
   }, []);
 
+  const onShowReport = (selectedMedicalReport) => {
+    // setModalValue(false);
+    navigate("/download-pdf", {
+      state: {
+        details: userDetails,
+        date,
+        medicalReport: selectedMedicalReport
+      },
+    });
+  };
+
   return (
     <div className="admin-dashboard user-dashboard">
       <Sidebar />
@@ -27,36 +45,38 @@ function LabTests() {
         <DashboardHeader />
         <h2 className="my-3">Lab Tests</h2>
         <div className="content">
-          {userDetails && userDetails.medicalReports.length > 0 ? (
+          {userDetails &&
+          userDetails.medicalReports &&
+          userDetails.medicalReports.length > 0 ? (
             <Table responsive stripedble="true">
               <thead>
                 <tr>
                   <th>#</th>
                   <th>Lab Test Name</th>
-                  <th>Lab Test Status</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                {userDetails.medicalReports.map((value, index) => {
-                  if (value.labTestName) {
-                    return (
-                      <tr key={index}>
-                        <td>*</td>
-                        <td>{value.labTestName}</td>
-                        <td>{value.labTestStatus}</td>
-                        <td>
-                          <button 
-                            className="btn btn-primary" 
-                            onClick={_ => navigate("/download-pdf", { state: userDetails})}>
-                            Take Lab Test
-                          </button>
-                        </td>
-                      </tr>
-                    );
-                  }
-                  return "";
-                })}
+                {userDetails &&
+                  userDetails.medicalReports &&
+                  userDetails.medicalReports.map((value, index) => {
+                    if (value.labTestName) {
+                      return (
+                        <tr key={index}>
+                          <td>*</td>
+                          <td>{value.labTestName}</td>
+                          <td>Completed</td>
+                          <td>
+                            <button className="btn btn-primary" onClick={_ => onShowReport(value)}>
+                              Show report
+                            </button>
+                          </td>
+                        </tr>
+                      );
+                    }
+                    return "";
+                  })}
               </tbody>
             </Table>
           ) : (
@@ -71,3 +91,5 @@ function LabTests() {
 }
 
 export default LabTests;
+
+//
