@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/static/css/main.efb640b6.css",
+    "main.js": "/static/js/main.1f3c1968.js",
+    "static/js/703.ec1d2295.chunk.js": "/static/js/703.ec1d2295.chunk.js",
+    "static/js/413.a092fcda.chunk.js": "/static/js/413.a092fcda.chunk.js",
+    "static/js/52.cba20fdf.chunk.js": "/static/js/52.cba20fdf.chunk.js",
+    "static/media/About1.jpeg": "/static/media/About1.0ec5972f054d085b50d5.jpeg",
+    "static/media/Doctor3.jpeg": "/static/media/Doctor3.5d68be7045531116acf6.jpeg",
+    "static/media/Doctor4.jpeg": "/static/media/Doctor4.68d39496f6ea2b2be0dc.jpeg",
+    "static/media/About2.jpeg": "/static/media/About2.cb08dc45cfd46335347f.jpeg",
+    "static/media/Skin.jpeg": "/static/media/Skin.cbd2b86001dbc885d402.jpeg",
+    "static/media/Diagnostic.jpeg": "/static/media/Diagnostic.37ca2c1340032f26eb88.jpeg",
+    "static/media/Eye.jpeg": "/static/media/Eye.400e190164435a981467.jpeg",
+    "static/media/Doctor1.jpeg": "/static/media/Doctor1.481b423dbfc7faf31766.jpeg",
+    "static/media/Dental.jpeg": "/static/media/Dental.df11f803007a1a11a2e3.jpeg",
+    "static/media/Medical.jpeg": "/static/media/Medical.ccf8e977f8d7871ad9af.jpeg",
+    "static/media/Doctor6.jpeg": "/static/media/Doctor6.e17039bd5fc448ff894d.jpeg",
+    "static/media/Doctor5.jpeg": "/static/media/Doctor5.7b1a2f8ba3e6f1f0108d.jpeg",
+    "static/media/Pathology.jpeg": "/static/media/Pathology.e2e39c44144e927cc758.jpeg",
+    "static/media/praju.jpg": "/static/media/praju.7c3ce4eb8af4e92f2d18.jpg",
+    "static/media/Doctor2.jpeg": "/static/media/Doctor2.181fa9dceca47406aaa0.jpeg",
+    "static/media/admin.png": "/static/media/admin.3310f47da70426021a6c.png",
+    "static/media/abstract-bg.jpg": "/static/media/abstract-bg.01f8e7a562d74cd3a153.jpg",
+    "static/media/department1.jpg": "/static/media/department1.5b5001ed95661b6d7a52.jpg",
+    "static/media/patient.png": "/static/media/patient.d54c6d70cc2521b5e57e.png",
+    "static/media/neel.jpg": "/static/media/neel.4891e15d5c8d40151faa.jpg",
+    "static/media/tesha.jpg": "/static/media/tesha.ed404dc199ca26de7dd3.jpg",
+    "static/media/logo.png": "/static/media/logo.43e169eeeaeab4c50154.png",
+    "static/media/ecg.png": "/static/media/ecg.f6de051fe62065fe603b.png",
+    "index.html": "/index.html",
+    "static/media/arrow-up.svg": "/static/media/arrow-up.ba1d3183a043737f947864c3d2d73ee9.svg",
+    "main.efb640b6.css.map": "/static/css/main.efb640b6.css.map",
+    "main.1f3c1968.js.map": "/static/js/main.1f3c1968.js.map",
+    "703.ec1d2295.chunk.js.map": "/static/js/703.ec1d2295.chunk.js.map",
+    "413.a092fcda.chunk.js.map": "/static/js/413.a092fcda.chunk.js.map",
+    "52.cba20fdf.chunk.js.map": "/static/js/52.cba20fdf.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.efb640b6.css",
+    "static/js/main.1f3c1968.js"
+  ]
+}
