@@ -23,6 +23,7 @@ import DEPARTMENT6 from "../images/Diagnostic.jpeg";
 import neelImg from "../images/neel.jpg";
 import teshaImg from "../images/tesha.jpg";
 import PrajuImg from "../images/praju.jpg";
+import rimshaImg from "../images/rimsha.jpeg";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import "./home.scss";
 
@@ -136,7 +137,7 @@ function Home() {
               <h3>Prajakta Limje </h3>
             </div>
             <div>
-            <img src="" alt="rimsha-pic" />
+            <img src={rimshaImg} alt="rimsha-pic" />
               <h3>Rimsha Choudhary </h3>
             </div>
           </div>
