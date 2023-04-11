@@ -137,6 +137,38 @@
     margin: 0;
   }
 
+  .team-members {
+    padding: 30px 0 20px 0;
+    margin-top: 100px;
+    background-color: rgb(172, 171, 171);
+    .image-div {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 50px 0;
+      justify-content: space-evenly;
+      img {
+        width: 300px;
+        height: 300px;
+        margin: 30px 0;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .scroll-up {
+    position: fixed;
+    bottom: 35px;
+    right: 20px;
+    z-index: 100;
+    cursor: pointer;
+    animation: scrollTop 0.5s alternate ease;
+    img {
+      width: 35px;
+      padding-top: 10px;
+    }
+  }
+
   .right-container {
     width: 30%;
     text-align: left;
@@ -215,7 +247,7 @@
   }
 
   .department {
-    margin: 85px 0px;
+    margin-bottom: 85px;
     background-color: #eee;
   }
 
@@ -271,61 +303,60 @@
     border-radius: 5px;
     padding: 16px;
     margin: 16px 0;
- }
- .profilePic {
+  }
+  .profilePic {
     width: 100px;
     height: 100px;
- }
- .testimonialContainer::after {
+  }
+  .testimonialContainer::after {
     content: "";
     clear: both;
     display: table;
- }
- .testimonialContainer img {
+  }
+  .testimonialContainer img {
     float: left;
     margin-right: 20px;
     border-radius: 50%;
- }
- .testimonialContainer span {
+  }
+  .testimonialContainer span {
     font-size: 24px;
     font-weight: 500;
     margin-right: 15px;
     color: purple;
- }
- .testimonialContainer p {
+  }
+  .testimonialContainer p {
     font-size: 18px;
     font-style: oblique;
- }
+  }
 
- .socialMedia {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-  column-gap: 65px;
-}
+  .socialMedia {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    column-gap: 65px;
+  }
 
-.socialMedia a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fff;
-  color: #333;
-  width: 40px;
-  height: 40px;
-  margin: 0 10px;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-}
+  .socialMedia a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    color: #333;
+    margin: 0 10px;
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
 
-.socialMedia a:hover {
-  background-color: #6c7fec;
-  color: #fff;
-}
+  .socialMedia a:hover {
+    background-color: #6c7fec;
+    color: #fff;
+  }
 
-.socialMedia svg {
-  width: 20px;
-  height: 20px;
-}
+  .socialMedia svg {
+    width: 20px;
+    height: 20px;
+  }
 
   // media queries
 

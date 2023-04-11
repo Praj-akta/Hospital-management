@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Slider from "../Slider";
 import slides from "../mock.json";
 import ECG from "../images/ecg.png";
+import ArrowUp from '../images/arrow-up.svg';
+import { useWindowScroll } from 'react-use';
 import DOC1 from "../images/Doctor3.jpeg";
 import DOC2 from "../images/Doctor2.jpeg";
 import DOC3 from "../images/Doctor1.jpeg";
@@ -18,10 +20,29 @@ import DEPARTMENT5 from "../images/Dental.jpeg";
 import DEPARTMENT4 from "../images/Medical.jpeg";
 import DEPARTMENT3 from "../images/Pathology.jpeg";
 import DEPARTMENT6 from "../images/Diagnostic.jpeg";
+import neelImg from "../images/neel.jpg";
+import teshaImg from "../images/tesha.jpg";
+import PrajuImg from "../images/praju.jpg";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import "./home.scss";
 
 function Home() {
+  const { y: pageYOffset } = useWindowScroll();
+  const [scrollBtnVisible, setVisibility] = useState(false);
+
+  useEffect(() => {
+    if (pageYOffset > 200) {
+      setVisibility(true)
+    } else {
+      setVisibility(false);
+    }
+  }, [pageYOffset]);
+
+
+  function onScrollTop() {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' })
+  }
+
   return (
     <div className="main">
       <div className="home-container">
@@ -96,6 +117,28 @@ function Home() {
               safety
             </p>
             <a href="/">Learn More</a>
+          </div>
+        </div>
+
+        <div className="team-members">
+          <h1> Meet our Team </h1>
+          <div className="image-div">
+            <div>
+              <img src={neelImg} alt="neel-pic" />
+              <h3>Neel Gajera </h3>
+            </div>
+            <div>
+            <img src={teshaImg} alt="tesha-pic" />
+              <h3>Tesha Patel </h3>
+            </div>
+            <div>
+            <img src={PrajuImg} alt="praju-pic" />
+              <h3>Prajakta Limje </h3>
+            </div>
+            <div>
+            <img src="" alt="rimsha-pic" />
+              <h3>Rimsha Choudhary </h3>
+            </div>
           </div>
         </div>
 
@@ -323,6 +366,13 @@ function Home() {
           <p>Copyright ©2023 All rights reserved</p>
         </div>
       </div>
+      {
+        scrollBtnVisible && (
+          <div className="scroll-up" onClick={_ => onScrollTop()}>
+            <img src={ArrowUp} alt="scroll-up" />
+          </div>
+        )
+      }
     </div>
   );
 }

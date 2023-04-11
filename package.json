@@ -23,6 +23,7 @@
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "react-to-pdf": "^0.0.14",
+    "react-use": "^17.4.0",
     "redux": "^4.2.1",
     "style": "^0.0.3",
     "styled-components": "^5.3.9",
