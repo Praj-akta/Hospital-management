@@ -6,7 +6,7 @@ import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import AdminSidebar from "../AdminSidebar";
 import { useNavigate } from "react-router-dom";
-import { collection,doc, getDocs, deleteDoc } from "firebase/firestore";
+import { collection, doc, getDocs, deleteDoc } from "firebase/firestore";
 
 function Patients() {
   const navigate = useNavigate();
@@ -18,8 +18,13 @@ function Patients() {
 
   const onCLickDelete = async (userId) => {
     try {
-    const userRef = doc(collection(db, "users"), userId);
-    await deleteDoc(userRef).then(() => window.location.reload());
+      if (window.confirm("Are you sure you want to delete ?")) {
+        const userRef = doc(collection(db, "users"), userId);
+        await deleteDoc(userRef).then(() => {
+          alert("Your data has been deleted successfully.");
+          window.location.reload();
+        });
+      }
     } catch (error) {
       console.error("Error finding user: ", error);
     }

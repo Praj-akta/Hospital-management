@@ -53,7 +53,7 @@ function EditPatient() {
         <AdminHeader />
         <div className="row login-form register-form edit-form">
           <h3>Edit Patient</h3>
-          <div className="col-sm-10 col-lg-6 col-xl-6 col-md-8 p-0 login-form-container">
+          <div className="col-sm-10 col-lg-8 col-xl-6 col-md-10 p-0 login-form-container">
             <div className="login-form-holder">
               <form onSubmit={onSubmit} name="registerform">
                 <label>First Name:</label>

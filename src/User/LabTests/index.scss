@@ -6,10 +6,23 @@
   background-color: #f5f5f5;
   .logo-div {
     display: flex;
+    padding: 20px 0;
     background: #06253e;
-    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    img {
+      width: 50%;
+      margin-left: 40px;
+    }
     h2 {
       display: block;
+    }
+    .address {
+      color: #f5f5f5;
+    }
+    div {
+      display: flex;
+      justify-content: flex-start;
     }
   }
   .content {
@@ -17,7 +30,21 @@
     .name-and-date {
       display: flex;
       justify-content: space-between;
+      div {
+        display: flex;
+        justify-content: center;
+      }
     }
+  }
+  .result-text {
+    color: #1066ad;
+    text-align: left;
+    margin: 0;
+  }
+  .result-underline {
+    height: 5px;
+    margin: 4px 0;
+    color: #1066ad;
   }
 }
 
@@ -31,4 +58,8 @@
     height: 150px;
     padding: 10px;
   }
+}
+
+h2 {
+  color: #1066ad;
 }

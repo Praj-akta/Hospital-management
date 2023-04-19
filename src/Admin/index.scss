@@ -222,6 +222,13 @@
     margin: auto;
   }
 }
+.edit-form {
+  background: #eee !important;
+  .login-form-container {
+    background: none !important;
+    border: none !important;
+  }
+}
 
 @media screen and (max-width: 600px) {
   .admin-sidebar {

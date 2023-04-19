@@ -19,32 +19,32 @@ function LabReport() {
           </button>
         )}
       </Pdf>
-      <div ref={ref} className="col-8 lab-report-pdf">
+      <div ref={ref} className="col-7 lab-report-pdf">
         <div className="col-12 logo-div">
-          <img src={logo} alt="logo-design" />
+          <div className="col-6">
+            <img src={logo} alt="logo-design" />
+          </div>
+          <div className="col-6 address">
+            200 Fletcher Crescent, Alliston, ON L9R 1W7
+          </div>
         </div>
         <h2 className="text-center py-4">Laboratory Test Report</h2>
         <div className="content">
           <div className="name-and-date">
-            <p>
-              <strong>Patient Name: </strong>
-              {details?.firstname} {details?.lastname}
-            </p>
-            <p>
-              <strong>Date:</strong>
+            <div className="col-6">
+              <strong>Invoice Number: </strong>  5625242
+            </div>
+            <div className="col-6">
+              <strong>Invoice Date:</strong>
               {date}
-            </p>
+            </div>
           </div>
           <br />
 
-          <p className=" text-left">
-            <strong>Comments: </strong> {medicalReport.prescription}
-          </p>
-          <br />
-
-          <div className="d-flex flex-wrap text-left">
+          <div className="d-flex flex-wrap pb-3">
             <p className="col-6">
-              <strong>Patient ID Number:</strong> 5625242
+              <strong>Patient Name: </strong>
+              {details?.firstname} {details?.lastname}
             </p>
             <p className="col-6">
               <strong>Date of Birth: </strong> {details?.dob}
@@ -55,6 +55,11 @@ function LabReport() {
             <br />
             <br />
           </div>
+
+          <div className="text-left">
+            <strong>Comments: </strong> {medicalReport.prescription}
+          </div>
+          <br />
           <div>
             <Table>
               <thead>
@@ -74,6 +79,8 @@ function LabReport() {
                 </tr>
               </tbody>
             </Table>
+            <h3 className="result-text"> Results </h3>
+            <hr className="result-underline" />
             <Table responsive stripedble="true">
               <thead>
                 <tr>

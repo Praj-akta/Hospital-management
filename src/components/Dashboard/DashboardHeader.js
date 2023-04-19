@@ -24,11 +24,11 @@ function DashboardHeader() {
             {title && title.toLocaleLowerCase()}
           </Dropdown.Toggle>
           <Dropdown.Menu>
-            {title === "admin" && (
+            {/* {title === "admin" && (
               <Dropdown.Item href="/change-password">
                 Change Password
               </Dropdown.Item>
-            )}
+            )} */}
             <Dropdown.Item onClick={(_) => onLogout()}>Logout</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
